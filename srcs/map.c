@@ -1,14 +1,15 @@
 #include "../includes/so_long.h"
 
-void	read_map(char *file_name)
+void	read_map(t_config *info)
 {
 	t_list	*guard_node;
 	size_t	i;
 	int fd;
 
 	guard_node = ft_lstnew(NULL);
+	info->map_info->guard_node = guard_node;
 	i = 0;
-	fd = open(file_name, O_RDONLY);
+	fd = open(info->filename, O_RDONLY);
 	while (1)
 	{
 		char *line = get_next_line(fd);
@@ -19,5 +20,8 @@ void	read_map(char *file_name)
 		ft_lstadd_back(&guard_node, ft_lstnew(line));
 		i++;
 	}
-//	print_map(guard_node);
+	close(fd);
+	info->map_info->height = i;
+	info->map_info->width = ft_strlen(guard_node->next->content);
+	print_map(info);
 }
