@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 static char	*store_to_save(char *save)
 {
@@ -49,10 +49,7 @@ static char	*join_to_save(int fd, char *save)
 	char	*buf;
 	ssize_t	read_ret;
 
-	if (BUFFER_SIZE == INT_MAX)
-		buf = (char *)malloc (sizeof(char) * ((size_t)BUFFER_SIZE + 1));
-	else
-		buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
 	read_ret = NOT_EOF_OR_ERROR;
@@ -76,7 +73,7 @@ char	*get_next_line(int fd)
 	static char	*save;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || INT_MAX < BUFFER_SIZE)
+	if (fd < 0)
 		return (NULL);
 	save = join_to_save(fd, save);
 	if (save == NULL)
