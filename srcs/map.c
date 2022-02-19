@@ -1,5 +1,10 @@
 #include "../includes/so_long.h"
 
+void	display_map(t_config *info)
+{
+
+}
+
 void	read_map(t_config *info)
 {
 	t_list	*guard_node;
@@ -7,7 +12,7 @@ void	read_map(t_config *info)
 	int fd;
 
 	guard_node = ft_lstnew(NULL);
-	info->map_info->guard_node = guard_node;
+	info->map_info.guard_node = guard_node;
 	i = 0;
 	fd = open(info->filename, O_RDONLY);
 	while (1)
@@ -21,7 +26,7 @@ void	read_map(t_config *info)
 		i++;
 	}
 	close(fd);
-	info->map_info->height = i;
-	info->map_info->width = ft_strlen(guard_node->next->content);
-	print_map(info);
+	info->map_info.height = i;
+	info->map_info.width = ft_strlen(guard_node->next->content);
+//	print_map(info);
 }

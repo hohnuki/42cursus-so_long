@@ -2,19 +2,16 @@
 
 void	info_init(t_config *info)
 {
-	info->map_info = NULL;
-	info->player_info = NULL;
 	info->filename = NULL;
 }
 
 int	main(int argc, char **argv)
 {
-	t_config	*info;
-
-	info_init(info);
-	info = malloc(sizeof(t_config *));
-	info->filename = argv[1];
+	t_config	info;
 	(void)argc;
-	read_map(info);
 
+	info_init(&info);
+	info.filename = argv[1];
+	read_map(&info);
+	display_map(&info);
 }
