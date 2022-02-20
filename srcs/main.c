@@ -3,6 +3,7 @@
 void	info_init(t_config *info)
 {
 	info->filename = NULL;
+	info->images.image_size = PIXEL_SIZE;
 }
 
 int	main(int argc, char **argv)

@@ -2,11 +2,11 @@
 
 void	assign_image(t_config *info)
 {
-	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, PIXEL_SIZE, PIXEL_SIZE);
-	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, PIXEL_SIZE, PIXEL_SIZE);
-	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, PIXEL_SIZE, PIXEL_SIZE);
-	info->images.exit = mlx_xpm_file_to_image(info->mlx, IMG_EXIT, PIXEL_SIZE, PIXEL_SIZE);
-	info->images.empty = mlx_xpm_file_to_image(info->mlx, IMG_EMPTY, PIXEL_SIZE, PIXEL_SIZE);
+	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, &info->images.image_size, &info->images.image_size);
+	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, &info->images.image_size, &info->images.image_size);
+	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
+	info->images.exit = mlx_xpm_file_to_image(info->mlx, IMG_EXIT, &info->images.image_size, &info->images.image_size);
+	info->images.empty = mlx_xpm_file_to_image(info->mlx, IMG_EMPTY, &info->images.image_size, &info->images.image_size);
 }
 
 void	display_map(t_config *info)

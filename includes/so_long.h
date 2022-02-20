@@ -36,6 +36,7 @@ typedef struct s_image
 	void	*collectible;
 	void	*exit;
 	void	*empty;
+	int		image_size;
 }	t_image;
 
 typedef struct s_config
