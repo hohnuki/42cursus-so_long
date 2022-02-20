@@ -7,6 +7,7 @@
 # include <libc.h>
 # include "../includes/get_next_line.h"
 # include "../libft/libft.h"
+# include "../mlx_linux/mlx.h"
 
 typedef struct s_map
 {
@@ -22,6 +23,8 @@ typedef struct s_player
 
 typedef struct s_config
 {
+	void *mlx;
+	void *mlx_win;
 	t_map map_info;
 	t_player player_info;
 	char *filename;

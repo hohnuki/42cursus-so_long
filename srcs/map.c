@@ -2,7 +2,9 @@
 
 void	display_map(t_config *info)
 {
-
+	info->mlx = mlx_init();
+	info->mlx_win = mlx_new_window(info->mlx, 1920, 1080, "so_long");
+	mlx_loop(info->mlx);
 }
 
 void	read_map(t_config *info)
