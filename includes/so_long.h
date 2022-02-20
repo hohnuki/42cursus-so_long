@@ -9,13 +9,13 @@
 # include "../libft/libft.h"
 # include "../mlx_linux/mlx.h"
 
-# define PIXEL_SIZE 20
+# define PIXEL_SIZE 32
 
-# define IMG_EMPTY 			"../images/empty.xpm"
-# define IMG_WALL 			"../images/wall.xpm"
-# define IMG_COLLECTIBLE	"../images/shuriken.xpm"
-# define IMG_EXIT 			"../images/sasuke.xpm"
-# define IMG_PLAYER 		"../images/naruto.xpm"
+# define IMG_EMPTY			"images/empty.xpm"
+# define IMG_WALL			"images/wall.xpm"
+# define IMG_COLLECTIBLE	"images/shuriken.xpm"
+# define IMG_EXIT			"images/sasuke.xpm"
+# define IMG_PLAYER			"images/naruto.xpm"
 
 typedef struct s_map
 {
@@ -54,6 +54,8 @@ void	info_init(t_config *info);
 
 /* map.c */
 void	assign_image(t_config *info);
+void	ascii_to_xpm(t_config *info, char c, int i, int j);
+void	list_to_window(t_config *info);
 void	read_map(t_config *info);
 void	display_map(t_config *info);
 

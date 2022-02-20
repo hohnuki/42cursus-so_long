@@ -20,7 +20,7 @@ GITMLX			= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 
 all:			$(NAME)
 
-#$(MLX_PATH):
+$(MLX_PATH):
 				$(GITMLX)
 
 $(NAME):		$(MLX_PATH) $(SRCS_OBJS)
