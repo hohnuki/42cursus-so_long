@@ -62,4 +62,11 @@ void	display_map(t_config *info);
 /* map_debug.c */
 void	print_map(t_config *info);
 
+/* event.c */
+void	key_hook(int keycode, t_config *info);
+void	set_event(t_config *info);
+
+/* player.c */
+void	move_player(t_config *info, int keycode);
+
 #endif

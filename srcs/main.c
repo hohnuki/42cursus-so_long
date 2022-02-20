@@ -15,4 +15,6 @@ int	main(int argc, char **argv)
 	info.filename = argv[1];
 	read_map(&info);
 	display_map(&info);
+	set_event(&info);
+	mlx_loop(info.mlx);
 }

@@ -52,7 +52,6 @@ void	display_map(t_config *info)
 	info->mlx_win = mlx_new_window(info->mlx, (info->map_info.width * PIXEL_SIZE), (info->map_info.height * PIXEL_SIZE), "so_long");
 	assign_image(info);
 	list_to_window(info);
-	mlx_loop(info->mlx);
 }
 
 void	read_map(t_config *info)
