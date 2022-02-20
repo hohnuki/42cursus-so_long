@@ -1,9 +1,19 @@
 #include "../includes/so_long.h"
 
+void	assign_image(t_config *info)
+{
+	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, PIXEL_SIZE, PIXEL_SIZE);
+	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, PIXEL_SIZE, PIXEL_SIZE);
+	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, PIXEL_SIZE, PIXEL_SIZE);
+	info->images.exit = mlx_xpm_file_to_image(info->mlx, IMG_EXIT, PIXEL_SIZE, PIXEL_SIZE);
+	info->images.empty = mlx_xpm_file_to_image(info->mlx, IMG_EMPTY, PIXEL_SIZE, PIXEL_SIZE);
+}
+
 void	display_map(t_config *info)
 {
 	info->mlx = mlx_init();
-	info->mlx_win = mlx_new_window(info->mlx, 1920, 1080, "so_long");
+	info->mlx_win = mlx_new_window(info->mlx, (info->map_info.width * PIXEL_SIZE), (info->map_info.height * PIXEL_SIZE), "so_long");
+	assign_image(info);
 	mlx_loop(info->mlx);
 }
 
