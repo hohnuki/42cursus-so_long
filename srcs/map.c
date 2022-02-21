@@ -77,5 +77,6 @@ void	read_map(t_config *info)
 	close(fd);
 	info->map_info.height = (int)i;
 	info->map_info.width = (int)ft_strlen(guard_node->next->content);
+	input_player_position(info);
 //	print_map(info);
 }

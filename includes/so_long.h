@@ -26,7 +26,8 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int test;
+	int postion_x;
+	int postion_y;
 }	t_player;
 
 typedef struct s_image
@@ -61,6 +62,9 @@ void	display_map(t_config *info);
 
 /* map_debug.c */
 void	print_map(t_config *info);
+
+/* validate_map.c */
+void    input_player_position(t_config *info);
 
 /* event.c */
 void	key_hook(int keycode, t_config *info);
