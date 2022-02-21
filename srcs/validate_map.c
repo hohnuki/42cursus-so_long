@@ -2,9 +2,9 @@
 
 void    input_player_position(t_config *info)
 {
-	t_list    *node;
-	int        i;
-	int     j;
+	t_list	*node;
+	int		i;
+	int		j;
 
 	node = info->map_info.guard_node;
 	node = node->next;

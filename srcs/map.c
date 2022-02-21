@@ -2,7 +2,6 @@
 
 void	assign_image(t_config *info)
 {
-
 	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
 	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, &info->images.image_size, &info->images.image_size);
 	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);

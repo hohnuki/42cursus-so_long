@@ -71,6 +71,7 @@ void	key_hook(int keycode, t_config *info);
 void	set_event(t_config *info);
 
 /* player.c */
+void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y);
 void	move_player(t_config *info, int keycode);
 
 #endif
