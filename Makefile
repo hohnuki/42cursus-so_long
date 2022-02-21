@@ -5,7 +5,7 @@ INCLUDES		= 	includes
 
 LIBFT_PATH		= 	./libft/
 SRCS_PATH		= 	./srcs/
-MLX_PATH		= 	./mlx_linux/
+MLX_PATH		= 	./minilibx_mms/
 
 SRCS_FILES    	= 	$(SRCS_PATH)main.c $(SRCS_PATH)map.c $(SRCS_PATH)get_next_line.c $(SRCS_PATH)get_next_line_utils.c \
 					$(SRCS_PATH)map_debug.c
@@ -15,7 +15,8 @@ SRCS_OBJS		= 	$(SRCS_FILES:.c=.o)
 LIBFTMAKE		= 	$(MAKE) -C $(LIBFT_PATH)
 LIBFTFLAG		= 	-L$(LIBFT_PATH) -lft
 MLXMAKE			= 	$(MAKE) -C $(MLX_PATH)
-MLXFLAG			= 	-Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
+#MLXFLAG			= 	-Lmlx_linux -lmlx -Imlx_linux -lXext -lX11 -lm -L/usr/X11R6/lib
+MLXFLAG			=	-lmlx -framework OpenGL -framework AppKit
 GITMLX			= 	git clone https://github.com/42Paris/minilibx-linux.git mlx_linux
 
 all:			$(NAME)
