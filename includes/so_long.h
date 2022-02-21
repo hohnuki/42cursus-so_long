@@ -17,6 +17,11 @@
 # define IMG_EXIT			"images/sasuke.xpm"
 # define IMG_PLAYER			"images/naruto.xpm"
 
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_W 13
+
 typedef struct s_map
 {
 	int	width;
@@ -67,7 +72,7 @@ void	print_map(t_config *info);
 void    input_player_position(t_config *info);
 
 /* event.c */
-void	key_hook(int keycode, t_config *info);
+int		key_hook(int keycode, t_config *info);
 void	set_event(t_config *info);
 
 /* player.c */

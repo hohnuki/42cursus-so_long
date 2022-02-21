@@ -1,9 +1,14 @@
 #include "../includes/so_long.h"
 
-void	key_hook(int keycode, t_config *info)
+int	key_hook(int keycode, t_config *info)
 {
-	if (keycode == 'a' || keycode == 'w' || keycode == 's' || keycode == 'd')
+	printf("\x1b[36m[key_hook in]\n\033[m");
+	printf("\x1b[36m[keycode=%d]\n\033[m", keycode);
+	if (keycode == KEY_A || keycode == KEY_W || keycode == KEY_S || keycode == KEY_D)
 		move_player(info, keycode);
+	input_player_position(info);
+	list_to_window(info);
+	return (0);
 }
 
 void	set_event(t_config *info)

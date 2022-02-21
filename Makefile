@@ -7,8 +7,8 @@ LIBFT_PATH		= 	./libft/
 SRCS_PATH		= 	./srcs/
 MLX_PATH		= 	./minilibx_mms/
 
-SRCS_FILES    	= 	$(SRCS_PATH)main.c $(SRCS_PATH)map.c $(SRCS_PATH)get_next_line.c $(SRCS_PATH)get_next_line_utils.c \
-					$(SRCS_PATH)map_debug.c
+SRCS_FILES		= 	$(SRCS_PATH)event.c $(SRCS_PATH)get_next_line.c $(SRCS_PATH)get_next_line_utils.c $(SRCS_PATH)main.c \
+					$(SRCS_PATH)map.c $(SRCS_PATH)map_debug.c $(SRCS_PATH)player.c $(SRCS_PATH)validate_map.c
 
 SRCS_OBJS		= 	$(SRCS_FILES:.c=.o)
 

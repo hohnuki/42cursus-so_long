@@ -2,26 +2,23 @@
 
 void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y)
 {
-	t_list	*node;
-	int 	x_i;
+	t_list *node = info->map_info.guard_node;
 	int 	y_i;
 
-	x_i = 0;
+	printf("\x1b[36m[swap_position in]\n\033[m");
 	y_i = 0;
-	node = info->map_info.guard_node;
 	node = node->next;
-	while (y_i <= current_y)
+	while (y_i < current_y)
 	{
 		node = node->next;
 		y_i++;
 	}
 	node->content[current_x] = '0';
 
-	x_i = 0;
 	y_i = 0;
 	node = info->map_info.guard_node;
 	node = node->next;
-	while (y_i <= next_y)
+	while (y_i < next_y)
 	{
 		node = node->next;
 		y_i++;
@@ -31,12 +28,13 @@ void	swap_position(t_config *info, int current_x, int current_y, int next_x, int
 
 void	move_player(t_config *info, int keycode)
 {
-	if (keycode == 'a')
+	printf("\x1b[36m[move_player in]\n\033[m");
+	if (keycode == KEY_A)
 		swap_position(info, info->player_info.postion_x, info->player_info.postion_y, info->player_info.postion_x - 1, info->player_info.postion_y);
-	else if (keycode == 'w')
+	else if (keycode == KEY_W)
 		swap_position(info, info->player_info.postion_x, info->player_info.postion_y, info->player_info.postion_x, info->player_info.postion_y - 1);
-	else if (keycode == 'd')
+	else if (keycode == KEY_D)
 		swap_position(info, info->player_info.postion_x, info->player_info.postion_y, info->player_info.postion_x + 1, info->player_info.postion_y);
-	else if (keycode == 's')
+	else if (keycode == KEY_S)
 		swap_position(info, info->player_info.postion_x, info->player_info.postion_y, info->player_info.postion_x, info->player_info.postion_y + 1);
 }
