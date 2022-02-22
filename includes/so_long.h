@@ -27,7 +27,7 @@ typedef struct s_map
 	int	width;
 	int	height;
 	t_list	*guard_node;
-	char	**line;
+	char	**map;
 }	t_map;
 
 typedef struct s_player
@@ -84,6 +84,6 @@ void	swap_position(t_config *info, int current_x, int current_y, int next_x, int
 void	move_player(t_config *info, int keycode);
 
 /* convert.c */
-void	list_to_array(t_config *info);
+void	list_to_array(t_config **info);
 
 #endif
