@@ -2,14 +2,14 @@
 
 void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y)
 {
-	printf("\x1b[36m[swap_position in]\n\033[m");
+//	printf("\x1b[36m[swap_position in]\n\033[m");
 	info->map_info.map[current_y][current_x] = '0';
 	info->map_info.map[next_y][next_x] = 'P';
 }
 
 void	move_player(t_config *info, int keycode)
 {
-	printf("\x1b[36m[move_player in]\n\033[m");
+//	printf("\x1b[36m[move_player in]\n\033[m");
 //	if (keycode == KEY_A)
 //		swap_position(info, info->player_info.postion_x, info->player_info.postion_y, info->player_info.postion_x - 1, info->player_info.postion_y);
 //	else if (keycode == KEY_W)
