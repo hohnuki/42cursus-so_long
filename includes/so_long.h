@@ -27,6 +27,7 @@ typedef struct s_map
 	int	width;
 	int	height;
 	t_list	*guard_node;
+	char	**line;
 }	t_map;
 
 typedef struct s_player
@@ -68,8 +69,11 @@ void	display_map(t_config *info);
 /* map_debug.c */
 void	print_map(t_config *info);
 
+/* map_debug_array.c */
+void	print_map_array(t_config *info);
+
 /* validate_map.c */
-void    input_player_position(t_config *info);
+void	input_player_position(t_config *info);
 
 /* event.c */
 int		key_hook(int keycode, t_config *info);
@@ -78,5 +82,8 @@ void	set_event(t_config *info);
 /* player.c */
 void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y);
 void	move_player(t_config *info, int keycode);
+
+/* convert.c */
+void	list_to_array(t_config *info);
 
 #endif
