@@ -26,7 +26,6 @@ typedef struct s_map
 {
 	int	width;
 	int	height;
-	int pedometer;
 	int collectible_count;
 	t_list	*guard_node;
 	char	**map;
@@ -36,6 +35,8 @@ typedef struct s_player
 {
 	int postion_x;
 	int postion_y;
+	int pedometer;
+	int collectible_count;
 }	t_player;
 
 typedef struct s_image
@@ -76,6 +77,7 @@ void	print_map_array(t_config *info);
 
 /* validate_map.c */
 void	input_player_position(t_config *info);
+void	count_collectable(t_config *info);
 
 /* event.c */
 int		key_hook(int keycode, t_config *info);

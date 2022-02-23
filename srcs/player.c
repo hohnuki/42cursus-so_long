@@ -2,40 +2,43 @@
 
 void	print_pedometer(t_config *info)
 {
-	printf("pedometer:%d \n", info->map_info.pedometer);
+	printf("pedometer:%d \n", info->player_info.pedometer);
 }
 
 void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y)
 {
 //	printf("\x1b[36m[swap_position in]\n\033[m");
-	printf("\x1b[36m[%c]\n\033[m", info->map_info.map[next_y][next_x]);
+//	printf("\x1b[36m[%c]\n\033[m", info->map_info.map[next_y][next_x]);
 	if (info->map_info.map[next_y][next_x] == '1')
 		return ;
 	else if (info->map_info.map[next_y][next_x] == 'C')
 	{
-		info->map_info.pedometer++;
-		info->map_info.collectible_count++;
+		info->player_info.pedometer++;
+		info->player_info.collectible_count++;
 		info->map_info.map[current_y][current_x] = '0';
 		info->map_info.map[next_y][next_x] = 'P';
 		print_pedometer(info);
 	}
 	else if (info->map_info.map[next_y][next_x] == '0')
 	{
-		info->map_info.pedometer++;
+		info->player_info.pedometer++;
 		info->map_info.map[current_y][current_x] = '0';
 		info->map_info.map[next_y][next_x] = 'P';
 		print_pedometer(info);
 	}
 	else
 	{
-		info->map_info.pedometer++;
-		info->map_info.map[current_y][current_x] = '0';
-		info->map_info.map[next_y][next_x] = 'P';
-		print_pedometer(info);
-		printf("Game clear!\n");
-		free(info->mlx);
+		if (info->map_info.collectible_count == info->player_info.collectible_count)
+		{
+			info->player_info.pedometer++;
+			info->map_info.map[current_y][current_x] = '0';
+			info->map_info.map[next_y][next_x] = 'P';
+			print_pedometer(info);
+			printf("Game clear!\n");
+			free(info->mlx);
+		}
 	}
-//	else if (info->map_info.map[next_y][next_y] == 'E')
+//	else if (info->map_info.map[next_y][next_y] == 'E')//TODO:Eで真偽判定通らない理由の解明
 //	{
 //		info->map_info.pedometer++;
 //		info->map_info.map[current_y][current_x] = '0';

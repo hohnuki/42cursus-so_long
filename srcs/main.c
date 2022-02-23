@@ -4,6 +4,9 @@ void	info_init(t_config *info)
 {
 	info->filename = NULL;
 	info->images.image_size = PIXEL_SIZE;
+	info->map_info.collectible_count = 0;
+	info->player_info.collectible_count = 0;
+	info->player_info.pedometer = 0;
 }
 
 int	main(int argc, char **argv)

@@ -1,5 +1,25 @@
 #include "../includes/so_long.h"
 
+void	count_collectable(t_config *info)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while(i < info->map_info.height)
+	{
+		j = 0;
+		while(j < info->map_info.width)
+		{
+			if (info->map_info.map[i][j] == 'C')
+				info->map_info.collectible_count++;
+			j++;
+		}
+		i++;
+	}
+	printf("\x1b[36m[%d]\n\033[m", info->map_info.collectible_count);
+}
+
 void	input_player_position(t_config *info)
 {
 	t_list	*node;
