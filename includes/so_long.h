@@ -34,6 +34,7 @@ typedef struct s_player
 {
 	int postion_x;
 	int postion_y;
+	int pedmeter;
 }	t_player;
 
 typedef struct s_image
