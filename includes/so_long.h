@@ -26,7 +26,9 @@ typedef struct s_map
 {
 	int	width;
 	int	height;
+	int player_count;
 	int collectible_count;
+	int exit_count;
 	t_list	*guard_node;
 	char	**map;
 }	t_map;
@@ -64,6 +66,7 @@ void	info_init(t_config *info);
 
 /* validate_filename.c */
 void	validate_filename(char *filename);
+void	validate_map_smooth(t_config *info);
 
 /* map.c */
 void	assign_image(t_config *info);
@@ -79,6 +82,10 @@ void	print_map(t_config *info);
 void	print_map_array(t_config *info);
 
 /* validate_map.c */
+void	validate_map_rectangle(t_config *info);
+
+
+/* config_map_info.c */
 void	input_player_position(t_config *info);
 void	count_collectable(t_config *info);
 
