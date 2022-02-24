@@ -62,6 +62,9 @@ typedef struct s_config
 /* main.c */
 void	info_init(t_config *info);
 
+/* validate_filename.c */
+void	validate_filename(char *filename);
+
 /* map.c */
 void	assign_image(t_config *info);
 void	ascii_to_xpm(t_config *info, char c, int i, int j);

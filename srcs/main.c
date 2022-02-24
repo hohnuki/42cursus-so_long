@@ -15,6 +15,7 @@ int	main(int argc, char **argv)
 	(void)argc;
 
 	info_init(&info);
+	validate_filename(argv[1]);
 	info.filename = argv[1];
 	read_map(&info);
 	display_map(&info);
