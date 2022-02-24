@@ -20,3 +20,52 @@ void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェック
 		i++;
 	}
 }
+
+void	validate_characters(t_config *info)
+{
+	char	*tmp_address;
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < info->map_info.height)
+	{
+		j = 0;
+		while (j < info->map_info.width)
+		{
+			if (info->map_info.map[i][j] == 'C')
+				info->map_info.collectible_count++;
+			else if (info->map_info.map[i][j] == 'P')
+				info->map_info.player_count++;
+			else if (info->map_info.map[i][j] == 'E')
+				info->map_info.exit_count++;
+
+			tmp_address = ft_strchr("10CEP", info->map_info.map[i][j]);
+			if (tmp_address == NULL)
+				exit(1);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	validate_enclose_wall(t_config *info)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < info->map_info.height)
+	{
+		j = 0;
+		while (j < info->map_info.width)
+		{
+			if ((j == 0 || j == ft_strlen(info->map_info.map[i])) && info->map_info.map[i][j] != '1')
+				exit(1);
+			if ((i == 0 || i == info->map_info.height) && info->map_info.map[i][j] != '1')
+				exit(1);
+			j++;
+		}
+		i++;
+	}
+}

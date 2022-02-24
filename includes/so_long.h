@@ -83,6 +83,10 @@ void	print_map_array(t_config *info);
 
 /* validate_map.c */
 void	validate_map_rectangle(t_config *info);
+void	validate_map_smooth(t_config *info);
+void	validate_characters(t_config *info);
+void	validate_enclose_wall(t_config *info);
+
 
 
 /* config_map_info.c */
