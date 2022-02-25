@@ -35,7 +35,7 @@ void	swap_position(t_config *info, int current_x, int current_y, int next_x, int
 			info->map_info.map[next_y][next_x] = 'P';
 			print_pedometer(info);
 			printf("Game clear!\n");
-			free(info->mlx);
+			mlx_free(info);
 		}
 	}
 //	else if (info->map_info.map[next_y][next_y] == 'E')//TODO:Eで真偽判定通らない理由の解明

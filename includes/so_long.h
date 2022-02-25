@@ -65,7 +65,7 @@ typedef struct s_config
 void	info_init(t_config *info);
 
 /* validate_filename.c */
-void	validate_filename(char *filename);
+void	validate_filename(t_config *info, char *filename);
 void	validate_map_smooth(t_config *info);
 
 /* map.c */
@@ -82,12 +82,14 @@ void	print_map(t_config *info);
 void	print_map_array(t_config *info);
 
 /* validate_map.c */
+void	validate_map(t_config *info);
 void	validate_map_rectangle(t_config *info);
 void	validate_map_smooth(t_config *info);
 void	validate_characters(t_config *info);
 void	validate_enclose_wall(t_config *info);
 
-
+/* free.c */
+int	mlx_free(t_config *info);
 
 /* config_map_info.c */
 void	input_player_position(t_config *info);

@@ -1,11 +1,19 @@
 #include "../includes/so_long.h"
 
+void	validate_map(t_config *info)
+{
+	validate_map_rectangle(info);
+	validate_map_smooth(info);
+	validate_characters(info);
+	validate_enclose_wall(info);
+}
+
 void	validate_map_rectangle(t_config *info)
 {
 	if (info->map_info.width == info->map_info.height)
-		exit(1);
+		mlx_free(info);
 	if (info->map_info.width <= 2 || info->map_info.height <= 2)
-		exit(1);
+		mlx_free(info);
 }
 
 void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェックがまだ
@@ -16,7 +24,7 @@ void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェック
 	while (i < info->map_info.height)
 	{
 		if (ft_strlen(info->map_info.map[i]) != info->map_info.height)
-			exit(1);
+			mlx_free(info);
 		i++;
 	}
 }
@@ -42,7 +50,7 @@ void	validate_characters(t_config *info)
 
 			tmp_address = ft_strchr("10CEP", info->map_info.map[i][j]);
 			if (tmp_address == NULL)
-				exit(1);
+				mlx_free(info);
 			j++;
 		}
 		i++;
@@ -61,9 +69,9 @@ void	validate_enclose_wall(t_config *info)
 		while (j < info->map_info.width)
 		{
 			if ((j == 0 || j == ft_strlen(info->map_info.map[i])) && info->map_info.map[i][j] != '1')
-				exit(1);
+				mlx_free(info);
 			if ((i == 0 || i == info->map_info.height) && info->map_info.map[i][j] != '1')
-				exit(1);
+				mlx_free(info);
 			j++;
 		}
 		i++;

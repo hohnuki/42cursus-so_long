@@ -15,7 +15,7 @@ char	**free_array(char **map)
 	return (NULL);
 }
 
-int		mlx_free(t_config *info)
+int		mlx_free(t_config *info)//TODO:listをフリーしていない.
 {
 	if (info->map_info.map != NULL)
 		info->map_info.map = free_array(info->map_info.map);
@@ -33,8 +33,8 @@ int		mlx_free(t_config *info)
 		mlx_destroy_image(info->mlx, info->mlx_win);
 	if (info->mlx != NULL)
 	{
-		mlx_destroy_display(info->mlx);
-		mlx_loop_end(info->mlx);
+//		mlx_destroy_display(info->mlx);
+//		mlx_loop_end(info->mlx);
 		free(info->mlx);
 	}
 	exit (1);

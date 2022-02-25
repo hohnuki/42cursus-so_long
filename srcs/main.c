@@ -12,10 +12,11 @@ void	info_init(t_config *info)
 int	main(int argc, char **argv)
 {
 	t_config	info;
-	(void)argc;
 
+	if (argc != 2)
+		exit(1);
 	info_init(&info);
-	validate_filename(argv[1]);
+	validate_filename(&info, argv[1]);
 	info.filename = argv[1];
 	read_map(&info);
 	display_map(&info);
