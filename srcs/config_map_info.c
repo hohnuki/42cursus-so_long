@@ -17,7 +17,7 @@ void	count_collectable(t_config *info)
 		}
 		i++;
 	}
-	printf("\x1b[36m[%d]\n\033[m", info->map_info.collectible_count);
+//	printf("\x1b[36m[%d]\n\033[m", info->map_info.collectible_count);
 }
 
 void	input_player_position(t_config *info)

@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	t_config	info;
 
 	if (argc != 2)
-		exit(1);
+		exit(EXIT_FAILURE);
 	info_init(&info);
 	validate_filename(&info, argv[1]);
 	info.filename = argv[1];

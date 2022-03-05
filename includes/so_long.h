@@ -7,7 +7,8 @@
 # include <libc.h>
 # include "../includes/get_next_line.h"
 # include "../libft/libft.h"
-# include "../minilibx_mms/mlx.h"
+//# include "../minilibx_mms/mlx.h"
+# include "../mlx_linux/mlx.h"
 
 # define PIXEL_SIZE 32
 

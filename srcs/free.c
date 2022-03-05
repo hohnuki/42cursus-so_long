@@ -1,24 +1,23 @@
 #include "../includes/so_long.h"
 
-char	**free_array(char **map)
+char	**free_array(t_config *info)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (map[i])
+	while (i < info->map_info.height)
 	{
-		free (map[i]);
-		map[i] = NULL;
+		free (info->map_info.map[i]);
 		i++;
 	}
-	free(map);
+	free(info->map_info.map);
 	return (NULL);
 }
 
 int		mlx_free(t_config *info)//TODO:listをフリーしていない.
 {
 	if (info->map_info.map != NULL)
-		info->map_info.map = free_array(info->map_info.map);
+		info->map_info.map = free_array(info);
 	if (info->images.empty != NULL)
 		mlx_destroy_image(info->mlx_win, info->images.empty);
 	if (info->images.exit != NULL)
@@ -33,8 +32,8 @@ int		mlx_free(t_config *info)//TODO:listをフリーしていない.
 		mlx_destroy_image(info->mlx, info->mlx_win);
 	if (info->mlx != NULL)
 	{
-//		mlx_destroy_display(info->mlx);
-//		mlx_loop_end(info->mlx);
+		mlx_destroy_display(info->mlx);
+		mlx_loop_end(info->mlx);
 		free(info->mlx);
 	}
 	exit (1);
