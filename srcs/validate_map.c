@@ -23,7 +23,7 @@ void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェック
 	i = 0;
 	while (i < info->map_info.height)
 	{
-		if (ft_strlen(info->map_info.map[i]) != info->map_info.height)
+		if ((int)ft_strlen(info->map_info.map[i]) != info->map_info.height)
 			mlx_free(info);
 		i++;
 	}
@@ -68,7 +68,7 @@ void	validate_enclose_wall(t_config *info)
 		j = 0;
 		while (j < info->map_info.width)
 		{
-			if ((j == 0 || j == ft_strlen(info->map_info.map[i])) && info->map_info.map[i][j] != '1')
+			if ((j == 0 || j == (int)ft_strlen(info->map_info.map[i])) && info->map_info.map[i][j] != '1')
 				mlx_free(info);
 			if ((i == 0 || i == info->map_info.height) && info->map_info.map[i][j] != '1')
 				mlx_free(info);

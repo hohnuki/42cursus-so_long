@@ -79,7 +79,7 @@ void	read_map(t_config *info)
 	input_player_position(info);
 	list_to_array(&info);
 	count_collectable(info);
-	validate_map(info);
+//	validate_map(info);
 //	print_map(info);
 //	print_map_array(info);
 }
