@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	list_to_array(t_config **info)
+void	list_to_array(t_config **info)//なんでダブルポインタ？
 {
 	t_list *node;
 	int 	i;
@@ -9,6 +9,8 @@ void	list_to_array(t_config **info)
 	node = node->next;
 	i = 0;
 	(*info)->map_info.map = malloc(sizeof(char *) * (*info)->map_info.height);
+	if ((*info)->map_info.map == NULL)
+		mlx_free(*info);
 	while (i < (*info)->map_info.height)
 	{
 		(*info)->map_info.map[i] = node->content;

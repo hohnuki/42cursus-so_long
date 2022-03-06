@@ -3,10 +3,20 @@
 void	assign_image(t_config *info)
 {
 	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
+	if (info->images.player == NULL)
+		mlx_free(info);
 	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, &info->images.image_size, &info->images.image_size);
+	if (info->images.wall == NULL)
+		mlx_free(info);
 	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
+	if (info->images.collectible == NULL)
+		mlx_free(info);
 	info->images.exit = mlx_xpm_file_to_image(info->mlx, IMG_EXIT, &info->images.image_size, &info->images.image_size);
+	if (info->images.exit == NULL)
+		mlx_free(info);
 	info->images.empty = mlx_xpm_file_to_image(info->mlx, IMG_EMPTY, &info->images.image_size, &info->images.image_size);
+	if (info->images.empty == NULL)
+		mlx_free(info);
 }
 
 void	ascii_to_xpm(t_config *info, char c, int i, int j)
