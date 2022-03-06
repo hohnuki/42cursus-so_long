@@ -38,7 +38,7 @@ int		mlx_free(t_config *info)
 		mlx_loop_end(info->mlx);
 		free(info->mlx);
 	}
-//	system("leaks so_long");
+	system("leaks so_long");
 	exit (1);
 	return (0);
 }
