@@ -68,9 +68,9 @@ void	validate_enclose_wall(t_config *info)
 		j = 0;
 		while (j < info->map_info.width)
 		{
-			if ((j == 0 || j == (int)ft_strlen(info->map_info.map[i])) && info->map_info.map[i][j] != '1')
+			if ((j == 0 || j == (int)(ft_strlen(info->map_info.map[i]) - 1)) && info->map_info.map[i][j] != '1')
 				mlx_free(info);
-			if ((i == 0 || i == info->map_info.height) && info->map_info.map[i][j] != '1')
+			if ((i == 0 || i == info->map_info.height - 1) && info->map_info.map[i][j] != '1')
 				mlx_free(info);
 			j++;
 		}
