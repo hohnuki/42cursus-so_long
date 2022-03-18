@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	validate_filename(&info, argv[1]);
 	info.filename = argv[1];
 	read_map(&info);
-	validate_enclose_wall(&info);
+	validate_map(&info);
 	display_map(&info);
 	set_event(&info);
 	mlx_loop(info.mlx);

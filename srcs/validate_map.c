@@ -2,10 +2,15 @@
 
 void	validate_map(t_config *info)
 {
+	printf("\x1b[36m[aaaaaaaa]\033[m\n");
 	validate_map_rectangle(info);
+	printf("\x1b[36m[bbbbbbbb]\033[m\n");
 	validate_map_smooth(info);
+	printf("\x1b[36m[eeeeeeee]\033[m\n");
 	validate_characters(info);
+	printf("\x1b[36m[ffffffff]\033[m\n");
 	validate_enclose_wall(info);
+	printf("\x1b[36m[gggggggg]\033[m\n");
 }
 
 void	validate_map_rectangle(t_config *info)
@@ -16,7 +21,7 @@ void	validate_map_rectangle(t_config *info)
 		mlx_free(info);
 }
 
-void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェックがまだ
+void	validate_map_smooth(t_config *info)
 {
 	int i;
 
