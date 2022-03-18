@@ -23,7 +23,7 @@ void	validate_map_smooth(t_config *info)//TODO:底面のガタガタチェック
 	i = 0;
 	while (i < info->map_info.height)
 	{
-		if ((int)ft_strlen(info->map_info.map[i]) != info->map_info.height)
+		if ((int)ft_strlen(info->map_info.map[i]) != info->map_info.width)
 			mlx_free(info);
 		i++;
 	}
