@@ -8,12 +8,13 @@ SRCS_PATH		= 	./srcs/
 #MLX_PATH		= 	./minilibx_mms/
 MLX_PATH		= 	./mlx_linux/
 
-SRCS_FILES		= 	$(SRCS_PATH)event.c $(SRCS_PATH)get_next_line.c $(SRCS_PATH)get_next_line_utils.c $(SRCS_PATH)main.c \
-					$(SRCS_PATH)map.c $(SRCS_PATH)map_debug.c $(SRCS_PATH)player.c $(SRCS_PATH)config_map_info.c \
-					$(SRCS_PATH)convert.c $(SRCS_PATH)map_debug_array.c $(SRCS_PATH)validate_filename.c \
-					$(SRCS_PATH)free.c $(SRCS_PATH)validate_map.c
+SRCS_FILES		= 	event.c get_next_line.c get_next_line_utils.c main.c \
+					map.c map_debug.c player.c config_map_info.c \
+					convert.c map_debug_array.c validate_filename.c \
+					free.c validate_map.c
 
-SRCS_OBJS		= 	$(SRCS_FILES:.c=.o)
+SRCS			=	$(addprefix $(SRCS_PATH), $(SRCS_FILES))
+SRCS_OBJS		= 	$(SRCS:.c=.o)
 
 LIBFTMAKE		= 	$(MAKE) -C $(LIBFT_PATH)
 LIBFTFLAG		= 	-L$(LIBFT_PATH) -lft
