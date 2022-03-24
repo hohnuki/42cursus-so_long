@@ -23,6 +23,14 @@
 # define KEY_D 2
 # define KEY_W 13
 
+# define key_press 2
+# define expose_e 12
+# define client_message 33
+
+# define key_press_mask 1L << 0
+# define expose_mask 1L << 15
+# define structure_notify_mask 1L << 17
+
 typedef struct s_map
 {
 	int	width;

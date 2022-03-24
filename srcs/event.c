@@ -19,7 +19,8 @@ int	expose(t_config *info)
 
 void	set_event(t_config *info)
 {
-	mlx_hook(info->mlx_win, 2, 1L << 0, key_hook, info);//TODO:x_event,x_maskにマクロ組む
-	mlx_hook(info->mlx_win, 33, 1L << 17, mlx_free, info);
-	mlx_hook(info->mlx_win, 12, 1L << 15, expose, info);
+	mlx_hook(info->mlx_win, key_press, key_press_mask, key_hook, info);
+	mlx_hook(info->mlx_win, expose_e, expose_mask, expose, info);
+	mlx_hook(info->mlx_win, client_message, structure_notify_mask, mlx_free, info);
+
 }
