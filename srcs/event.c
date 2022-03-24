@@ -11,9 +11,15 @@ int	key_hook(int keycode, t_config *info)
 	list_to_window(info);
 	return (0);
 }
+int	expose(t_config *info)
+{
+	list_to_window(info);
+	return (0);
+}
 
 void	set_event(t_config *info)
 {
 	mlx_hook(info->mlx_win, 2, 1L << 0, key_hook, info);//TODO:x_event,x_maskにマクロ組む
 	mlx_hook(info->mlx_win, 33, 1L << 17, mlx_free, info);
+	mlx_hook(info->mlx_win, 12, 1L << 15, expose, info);
 }
