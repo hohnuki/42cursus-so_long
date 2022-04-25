@@ -6,11 +6,11 @@ void	validate_filename(t_config *info, char *filename)
 	int 	strncmp_ret;
 
 	if (ft_strncmp(filename, ".ber", 4) == 0)
-		mlx_free(info);
+		error_message_and_free("filename is bad.", info);
 	dot_address = ft_strchr(filename, '.');
 	if (dot_address == NULL)
-		mlx_free(info);
+		error_message_and_free("filename is bad.", info);
 	strncmp_ret = ft_strncmp(dot_address, ".ber", 3);
 	if (strncmp_ret != 0)
-		mlx_free(info);
+		error_message_and_free("filename is bad.", info);
 }
