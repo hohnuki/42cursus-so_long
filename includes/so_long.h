@@ -100,6 +100,7 @@ void	validate_characters(t_config *info);
 void	validate_enclose_wall(t_config *info);
 
 /* free.c */
+void	error_message_and_free(char *message, t_config *info);
 int		mlx_free(t_config *info);
 
 /* config_map_info.c */

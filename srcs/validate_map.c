@@ -11,9 +11,9 @@ void	validate_map(t_config *info)
 void	validate_map_rectangle(t_config *info)
 {
 	if (info->map_info.width == info->map_info.height)
-		mlx_free(info);
+		error_message_and_free("map is not rectangle.", info);
 	if (info->map_info.width <= 2 || info->map_info.height <= 2)
-		mlx_free(info);
+		error_message_and_free("map is narrow", info);
 }
 
 void	validate_map_smooth(t_config *info)
@@ -24,7 +24,7 @@ void	validate_map_smooth(t_config *info)
 	while (i < info->map_info.height)
 	{
 		if ((int)ft_strlen(info->map_info.map[i]) != info->map_info.width)
-			mlx_free(info);
+			error_message_and_free("map is not smooth.", info);
 		i++;
 	}
 }
@@ -55,11 +55,13 @@ void	validate_characters(t_config *info)
 
 			tmp_address = ft_strchr("10CEP", info->map_info.map[i][j]);
 			if (tmp_address == NULL)
-				mlx_free(info);
+				error_message_and_free("map has invalid character.", info);
 			j++;
 		}
 		i++;
 	}
+	if (info->map_info.player_count != 1 || info->map_info.collectible_count == 0)
+		error_message_and_free("map lacks elements.", info);
 	// printf("\x1b[36m[%d]\033[m\n", info->map_info.collectible_count);
 }
 
@@ -75,9 +77,9 @@ void	validate_enclose_wall(t_config *info)
 		while (j < info->map_info.width)
 		{
 			if ((j == 0 || j == (int)(ft_strlen(info->map_info.map[i]) - 1)) && info->map_info.map[i][j] != '1')
-				mlx_free(info);
+				error_message_and_free("map is not enclosed wall.", info);
 			if ((i == 0 || i == info->map_info.height - 1) && info->map_info.map[i][j] != '1')
-				mlx_free(info);
+				error_message_and_free("map is not enclosed wall.", info);
 			j++;
 		}
 		i++;

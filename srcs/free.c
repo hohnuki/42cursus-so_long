@@ -1,5 +1,11 @@
 #include "../includes/so_long.h"
 
+void	error_message_and_free(char *message, t_config *info)
+{
+	ft_putendl_fd(message, STDERR_FILENO);
+	mlx_free(info);
+}
+
 char	**free_array(t_config *info)
 {
 	int	i;
@@ -40,7 +46,7 @@ int		mlx_free(t_config *info)
 		mlx_loop_end(info->mlx);
 		free(info->mlx);
 	}
-	system("leaks so_long");
+	// system("leaks so_long");
 	exit (1);
 	return (0);
 }

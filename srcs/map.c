@@ -93,7 +93,7 @@ void	read_map(t_config *info)
 	info->map_info.width = (int)ft_strlen(guard_node->next->content);
 	input_player_position(info);
 	list_to_array(info);
-//	validate_map(info);
-//	print_map(info);
+	validate_map(info);
+	// print_map(info);
 //	print_map_array(info);
 }
