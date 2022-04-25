@@ -8,6 +8,7 @@ void	info_init(t_config *info)
 	info->map_info.height = 0;
 	info->map_info.player_count = 0;
 	info->map_info.exit_count = 0;
+	info->map_info.collectible_count = 0;
 	info->map_info.guard_node = NULL;
 	info->map_info.map = NULL;
 	info->player_info.postion_x = 0;
@@ -15,6 +16,7 @@ void	info_init(t_config *info)
 	info->player_info.pedometer = 0;
 	info->player_info.collectible_count = 0;
 	info->images.player = NULL;
+	info->images.player2 = NULL;
 	info->images.wall = NULL;
 	info->images.collectible = NULL;
 	info->images.exit = NULL;

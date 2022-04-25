@@ -28,6 +28,8 @@ int		mlx_free(t_config *info)
 		mlx_destroy_image(info->mlx, info->images.collectible);
 	if (info->images.player != NULL)
 		mlx_destroy_image(info->mlx, info->images.player);
+	if (info->images.player2 != NULL)
+		mlx_destroy_image(info->mlx, info->images.player2);
 	if (info->images.wall != NULL)
 		mlx_destroy_image(info->mlx, info->images.wall);
 	if (info->mlx_win != NULL)

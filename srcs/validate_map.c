@@ -42,7 +42,12 @@ void	validate_characters(t_config *info)
 		while (j < info->map_info.width)
 		{
 			if (info->map_info.map[i][j] == 'C')
+			{
+				// printf("\x1b[36m[i = %d, j = %d]\033[m\n", i, j);
+				// printf("\x1b[36m[%d]\033[m\n", info->map_info.collectible_count);
 				info->map_info.collectible_count++;
+
+			}
 			else if (info->map_info.map[i][j] == 'P')
 				info->map_info.player_count++;
 			else if (info->map_info.map[i][j] == 'E')
@@ -55,6 +60,7 @@ void	validate_characters(t_config *info)
 		}
 		i++;
 	}
+	// printf("\x1b[36m[%d]\033[m\n", info->map_info.collectible_count);
 }
 
 void	validate_enclose_wall(t_config *info)

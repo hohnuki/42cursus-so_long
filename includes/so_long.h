@@ -13,10 +13,11 @@
 # define PIXEL_SIZE 32
 
 # define IMG_EMPTY			"images/empty.xpm"
-# define IMG_WALL			"images/wall.xpm"
-# define IMG_COLLECTIBLE	"images/shuriken.xpm"
-# define IMG_EXIT			"images/sasuke.xpm"
-# define IMG_PLAYER			"images/naruto.xpm"
+# define IMG_WALL			"images/iMac.xpm"
+# define IMG_COLLECTIBLE	"images/class.xpm"
+# define IMG_EXIT			"images/python.xpm"
+# define IMG_PLAYER			"images/c.xpm"
+# define IMG_PLAYER2		"images/c++.xpm"
 
 # define KEY_A 0
 # define KEY_S 1
@@ -53,6 +54,7 @@ typedef struct s_player
 typedef struct s_image
 {
 	void	*player;
+	void	*player2;
 	void	*wall;
 	void	*collectible;
 	void	*exit;

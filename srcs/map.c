@@ -5,6 +5,9 @@ void	assign_image(t_config *info)
 	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player == NULL)
 		mlx_free(info);
+	info->images.player2 = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER2, &(info->images.image_size), &(info->images.image_size));
+	if (info->images.player2 == NULL)
+		mlx_free(info);
 	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, &info->images.image_size, &info->images.image_size);
 	if (info->images.wall == NULL)
 		mlx_free(info);
@@ -25,6 +28,8 @@ void	ascii_to_xpm(t_config *info, char c, int i, int j)
 		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.empty, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == '1')
 		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.wall, i * PIXEL_SIZE, j * PIXEL_SIZE);
+	else if (c == 'P' && info->map_info.collectible_count == info->player_info.collectible_count)
+		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.player2, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == 'P')
 		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.player, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == 'C')
