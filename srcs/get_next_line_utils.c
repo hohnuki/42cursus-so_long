@@ -6,7 +6,7 @@
 /*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 18:23:38 by hohnuki           #+#    #+#             */
-/*   Updated: 2022/02/19 03:16:45 by ohnukihirok      ###   ########.fr       */
+/*   Updated: 2022/04/25 15:07:39 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (len <= ft_strlen_gnl(s))
-		str = (char *)malloc(sizeof(const char) * (len + 1));
+		str = malloc(sizeof(const char) * (len + 1));
 	else
-		str = (char *)malloc(sizeof(const char) * (ft_strlen_gnl(s) - start + 1));
+		str = malloc(sizeof(const char) * (ft_strlen_gnl(s) - start + 1));
 	if (str == NULL)
 		return (NULL);
 	while (i < len && s[start] != '\0')

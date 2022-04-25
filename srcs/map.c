@@ -2,22 +2,28 @@
 
 void	assign_image(t_config *info)
 {
-	info->images.player = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
+	info->images.player = mlx_xpm_file_to_image(info->mlx, \
+	IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player == NULL)
 		mlx_free(info);
-	info->images.player2 = mlx_xpm_file_to_image(info->mlx, IMG_PLAYER2, &(info->images.image_size), &(info->images.image_size));
+	info->images.player2 = mlx_xpm_file_to_image(info->mlx, \
+	IMG_PLAYER2, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player2 == NULL)
 		mlx_free(info);
-	info->images.wall = mlx_xpm_file_to_image(info->mlx, IMG_WALL, &info->images.image_size, &info->images.image_size);
+	info->images.wall = mlx_xpm_file_to_image(info->mlx, \
+	IMG_WALL, &info->images.image_size, &info->images.image_size);
 	if (info->images.wall == NULL)
 		mlx_free(info);
-	info->images.collectible = mlx_xpm_file_to_image(info->mlx, IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
+	info->images.collectible = mlx_xpm_file_to_image(info->mlx, \
+	IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
 	if (info->images.collectible == NULL)
 		mlx_free(info);
-	info->images.exit = mlx_xpm_file_to_image(info->mlx, IMG_EXIT, &info->images.image_size, &info->images.image_size);
+	info->images.exit = mlx_xpm_file_to_image(info->mlx, \
+	IMG_EXIT, &info->images.image_size, &info->images.image_size);
 	if (info->images.exit == NULL)
 		mlx_free(info);
-	info->images.empty = mlx_xpm_file_to_image(info->mlx, IMG_EMPTY, &info->images.image_size, &info->images.image_size);
+	info->images.empty = mlx_xpm_file_to_image(info->mlx, \
+	IMG_EMPTY, &info->images.image_size, &info->images.image_size);
 	if (info->images.empty == NULL)
 		mlx_free(info);
 }
@@ -25,24 +31,31 @@ void	assign_image(t_config *info)
 void	ascii_to_xpm(t_config *info, char c, int i, int j)
 {
 	if (c == '0')
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.empty, i * PIXEL_SIZE, j * PIXEL_SIZE);
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.empty, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == '1')
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.wall, i * PIXEL_SIZE, j * PIXEL_SIZE);
-	else if (c == 'P' && info->map_info.collectible_count == info->player_info.collectible_count)
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.player2, i * PIXEL_SIZE, j * PIXEL_SIZE);
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.wall, i * PIXEL_SIZE, j * PIXEL_SIZE);
+	else if (c == 'P' && info->map_info.collectible_count == \
+	info->player_info.collectible_count)
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.player2, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == 'P')
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.player, i * PIXEL_SIZE, j * PIXEL_SIZE);
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.player, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == 'C')
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.collectible, i * PIXEL_SIZE, j * PIXEL_SIZE);
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.collectible, i * PIXEL_SIZE, j * PIXEL_SIZE);
 	else if (c == 'E')
-		mlx_put_image_to_window(info->mlx, info->mlx_win, info->images.exit, i * PIXEL_SIZE, j * PIXEL_SIZE);
+		mlx_put_image_to_window(info->mlx, info->mlx_win, \
+		info->images.exit, i * PIXEL_SIZE, j * PIXEL_SIZE);
 }
 
 void	list_to_window(t_config *info)
 {
 	t_list	*node;
 	int		i;
-	int 	j;
+	int		j;
 
 	node = info->map_info.guard_node;
 	node = node->next;
@@ -63,7 +76,9 @@ void	list_to_window(t_config *info)
 void	display_map(t_config *info)
 {
 	info->mlx = mlx_init();
-	info->mlx_win = mlx_new_window(info->mlx, (info->map_info.width * PIXEL_SIZE), (info->map_info.height * PIXEL_SIZE), "so_long");
+	info->mlx_win = mlx_new_window(info->mlx, \
+	(info->map_info.width * PIXEL_SIZE), \
+	(info->map_info.height * PIXEL_SIZE), "so_long");
 	assign_image(info);
 	list_to_window(info);
 }
@@ -80,7 +95,7 @@ void	read_map(t_config *info)
 	fd = open(info->filename, O_RDONLY);
 	while (1)
 	{
-		char *line = get_next_line(fd);
+		char	*line = get_next_line(fd);
 		if (line == NULL)
 			break ;
 		if (line[ft_strlen(line) - 1] == '\n')
@@ -94,6 +109,4 @@ void	read_map(t_config *info)
 	input_player_position(info);
 	list_to_array(info);
 	validate_map(info);
-	// print_map(info);
-//	print_map_array(info);
 }

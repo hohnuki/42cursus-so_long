@@ -2,7 +2,7 @@
 
 void	print_map(t_config *info)
 {
-	t_list *node;
+	t_list	*node;
 
 	node = info->map_info.guard_node;
 	while (1)

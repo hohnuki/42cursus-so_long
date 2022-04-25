@@ -2,7 +2,7 @@
 
 void	print_map_array(t_config *info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < info->map_info.height)

@@ -3,7 +3,7 @@
 void	validate_filename(t_config *info, char *filename)
 {
 	char	*dot_address;
-	int 	strncmp_ret;
+	int		strncmp_ret;
 
 	if (ft_strncmp(filename, ".ber", 4) == 0)
 		error_message_and_free("filename is bad.", info);

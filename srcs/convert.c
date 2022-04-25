@@ -1,9 +1,9 @@
 #include "../includes/so_long.h"
 
-void	list_to_array(t_config *info)//なんでダブルポインタ？
+void	list_to_array(t_config *info)
 {
-	t_list *node;
-	int 	i;
+	t_list	*node;
+	int		i;
 
 	node = info->map_info.guard_node;
 	node = node->next;

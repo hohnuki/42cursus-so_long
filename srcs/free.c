@@ -20,7 +20,7 @@ char	**free_array(t_config *info)
 	return (NULL);
 }
 
-int		mlx_free(t_config *info)
+int	mlx_free(t_config *info)
 {
 	if (info->map_info.guard_node != NULL)
 		ft_lstclear(&(info->map_info.guard_node), free);

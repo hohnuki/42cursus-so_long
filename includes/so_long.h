@@ -30,7 +30,7 @@
 
 # define key_press_mask 1L << 0
 # define expose_mask 1L << 15
-# define structure_notify_mask 1L << 17
+# define struc_notify_mask 1L << 17
 
 typedef struct s_map
 {

@@ -11,6 +11,7 @@ int	key_hook(int keycode, t_config *info)
 	list_to_window(info);
 	return (0);
 }
+
 int	expose(t_config *info)
 {
 	list_to_window(info);
@@ -21,6 +22,5 @@ void	set_event(t_config *info)
 {
 	mlx_hook(info->mlx_win, key_press, key_press_mask, key_hook, info);
 	mlx_hook(info->mlx_win, expose_e, expose_mask, expose, info);
-	mlx_hook(info->mlx_win, client_message, structure_notify_mask, mlx_free, info);
-
+	mlx_hook(info->mlx_win, client_message, struc_notify_mask, mlx_free, info);
 }
