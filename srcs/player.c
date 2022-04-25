@@ -28,6 +28,8 @@ void	swap_position(t_config *info, int current_x, int current_y, int next_x, int
 	}
 	else
 	{
+		// printf("\x1b[36m[map_count = %d]\033[m\n", info->map_info.collectible_count);
+		// printf("\x1b[36m[player_info = %d]\033[m\n", info->player_info.collectible_count);
 		if (info->map_info.collectible_count == info->player_info.collectible_count)
 		{
 			info->player_info.pedometer++;

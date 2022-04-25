@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:45:28 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/11 21:57:06 by hohnuki          ###   ########.fr       */
+/*   Updated: 2022/04/25 09:32:45 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	*ft_calloc(size_t n, size_t size)
 {
 	char	*ptr;
-	size_t	i;
 
-	i = 0;
 	if (!n || !size)
 	{
 		n = 1;
