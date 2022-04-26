@@ -24,31 +24,35 @@
 # define KEY_D 2
 # define KEY_W 13
 
-# define key_press 2
-# define expose_e 12
-# define client_message 33
+# define KEY_PRESS 2
+# define EXPOSE_E 12
+# define CLIENT_MESSAGE 33
 
-# define key_press_mask 1L << 0
-# define expose_mask 1L << 15
-# define struc_notify_mask 1L << 17
+# define KEY_PRESS_MASK 1L << 0
+# define EXPOSE_MASK 1L << 15
+# define STRUC_NOTFY_MASK 1L << 17
 
 typedef struct s_map
 {
-	int	width;
-	int	height;
-	int player_count;
-	int collectible_count;
-	int exit_count;
+	int		width;
+	int		height;
+	int		player_count;
+	int		collectible_count;
+	int		exit_count;
 	t_list	*guard_node;
 	char	**map;
 }	t_map;
 
 typedef struct s_player
 {
-	int postion_x;
-	int postion_y;
-	int pedometer;
-	int collectible_count;
+	int	postion_x;
+	int	postion_y;
+	int	pedometer;
+	int	collectible_count;
+	int	c_x;
+	int	c_y;
+	int	n_x;
+	int	n_y;
 }	t_player;
 
 typedef struct s_image
@@ -64,16 +68,15 @@ typedef struct s_image
 
 typedef struct s_config
 {
-	void *mlx;
-	void *mlx_win;
-	t_map map_info;
-	t_player player_info;
-	t_image images;
-	char *filename;
+	void		*mlx;
+	void		*mlx_win;
+	t_map		map_info;
+	t_player	player_info;
+	t_image		images;
+	char		*filename;
 }	t_config;
 
 /* main.c */
-void	info_init(t_config *info);
 
 /* validate_filename.c */
 void	validate_filename(t_config *info, char *filename);
@@ -112,8 +115,6 @@ int		key_hook(int keycode, t_config *info);
 void	set_event(t_config *info);
 
 /* player.c */
-void	print_pedometer(t_config *info);
-void	swap_position(t_config *info, int current_x, int current_y, int next_x, int next_y);
 void	move_player(t_config *info, int keycode);
 
 /* convert.c */

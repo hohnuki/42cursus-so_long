@@ -1,6 +1,18 @@
 #include "../includes/so_long.h"
 
-void	info_init(t_config *info)
+static void	players_init(t_config *info)
+{
+	info->player_info.postion_x = 0;
+	info->player_info.postion_y = 0;
+	info->player_info.pedometer = 0;
+	info->player_info.collectible_count = 0;
+	info->player_info.c_x = 0;
+	info->player_info.c_y = 0;
+	info->player_info.n_x = 0;
+	info->player_info.n_y = 0;
+}
+
+static void	info_init(t_config *info)
 {
 	info->mlx = NULL;
 	info->mlx_win = NULL;
@@ -11,10 +23,7 @@ void	info_init(t_config *info)
 	info->map_info.collectible_count = 0;
 	info->map_info.guard_node = NULL;
 	info->map_info.map = NULL;
-	info->player_info.postion_x = 0;
-	info->player_info.postion_y = 0;
-	info->player_info.pedometer = 0;
-	info->player_info.collectible_count = 0;
+	players_init(info);
 	info->images.player = NULL;
 	info->images.player2 = NULL;
 	info->images.wall = NULL;
