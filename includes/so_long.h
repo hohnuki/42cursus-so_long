@@ -119,4 +119,7 @@ void	move_player(t_config *info, int keycode);
 /* convert.c */
 void	list_to_array(t_config *info);
 
+/* chechk_num_elements.c */
+void	check_num_element(t_config *info);
+
 #endif

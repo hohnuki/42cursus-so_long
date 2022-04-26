@@ -87,6 +87,7 @@ void	read_map(t_config *info)
 {
 	t_list	*guard_node;
 	size_t	i;
+	char	*line;
 	int		fd;
 
 	guard_node = ft_lstnew(NULL);
@@ -95,7 +96,7 @@ void	read_map(t_config *info)
 	fd = open(info->filename, O_RDONLY);
 	while (1)
 	{
-		char	*line = get_next_line(fd);
+		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
 		if (line[ft_strlen(line) - 1] == '\n')

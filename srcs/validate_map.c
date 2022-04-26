@@ -54,9 +54,7 @@ void	validate_characters(t_config *info)
 		}
 		i++;
 	}
-	if (info->map_info.player_count != 1 || \
-	info->map_info.collectible_count == 0)
-		error_message_and_free("map lacks elements.", info);
+	check_num_element(info);
 }
 
 void	validate_enclose_wall(t_config *info)

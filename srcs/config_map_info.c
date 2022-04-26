@@ -18,8 +18,6 @@ void	input_player_position(t_config *info)
 			{
 				info->player_info.postion_y = i;
 				info->player_info.postion_x = j;
-//				printf("\x1b[36m[player_info.postion_y = %d]\n\033[m", i);
-//				printf("\x1b[36m[player_info.postion_x = %d]\n\033[m", j);
 				return ;
 			}
 			j++;

@@ -20,12 +20,8 @@ char	**free_array(t_config *info)
 	return (NULL);
 }
 
-int	mlx_free(t_config *info)
+static void	free_image(t_config *info)
 {
-	if (info->map_info.guard_node != NULL)
-		ft_lstclear(&(info->map_info.guard_node), free);
-	if (info->map_info.map != NULL)
-		free(info->map_info.map);
 	if (info->images.empty != NULL)
 		mlx_destroy_image(info->mlx, info->images.empty);
 	if (info->images.exit != NULL)
@@ -40,13 +36,22 @@ int	mlx_free(t_config *info)
 		mlx_destroy_image(info->mlx, info->images.wall);
 	if (info->mlx_win != NULL)
 		mlx_destroy_window(info->mlx, info->mlx_win);
+}
+
+int	mlx_free(t_config *info)
+{
+	if (info->map_info.guard_node != NULL)
+		ft_lstclear(&(info->map_info.guard_node), free);
+	if (info->map_info.map != NULL)
+		free(info->map_info.map);
+	free_image(info);
 	if (info->mlx != NULL)
 	{
 		mlx_destroy_display(info->mlx);
 		mlx_loop_end(info->mlx);
 		free(info->mlx);
 	}
-	// system("leaks so_long");
+	system("leaks so_long");
 	exit (1);
 	return (0);
 }
