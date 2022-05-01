@@ -64,7 +64,7 @@ typedef struct s_image
 	int		image_size;
 }	t_image;
 
-typedef struct s_config
+typedef struct s_info
 {
 	void		*mlx;
 	void		*mlx_win;
@@ -72,33 +72,33 @@ typedef struct s_config
 	t_player	player_info;
 	t_image		images;
 	char		*filename;
-}	t_config;
+}	t_info;
 
 /* main.c */
 
 /* validate_filename.c */
 void	validate_filename(char *filename);
-void	validate_map_smooth(t_config *info);
+void	validate_map_smooth(t_info *info);
 
 /* map.c */
-void	assign_image(t_config *info);
-void	ascii_to_xpm(t_config *info, char c, int i, int j);
-void	list_to_window(t_config *info);
-void	read_map(t_config *info);
-void	display_map(t_config *info);
+void	assign_image(t_info *info);
+void	ascii_to_xpm(t_info *info, char c, int i, int j);
+void	list_to_window(t_info *info);
+void	read_map(t_info *info);
+void	display_map(t_info *info);
 
 /* map_debug.c */
-void	print_map(t_config *info);
+void	print_map(t_info *info);
 
 /* map_debug_array.c */
-void	print_map_array(t_config *info);
+void	print_map_array(t_info *info);
 
 /* validate_map.c */
-void	validate_map(t_config *info);
-void	validate_map_rectangle(t_config *info);
-void	validate_map_smooth(t_config *info);
-void	validate_characters(t_config *info);
-void	validate_enclose_wall(t_config *info);
+void	validate_map(t_info *info);
+void	validate_map_rectangle(t_info *info);
+void	validate_map_smooth(t_info *info);
+void	validate_characters(t_info *info);
+void	validate_enclose_wall(t_info *info);
 
 /* free.c */
 void	error_message_and_free(char *message);
@@ -106,20 +106,20 @@ void	mlx_free(void);
 int		mlx_free_ret_int(void);
 
 /* config_map_info.c */
-void	input_player_position(t_config *info);
-void	count_collectable(t_config *info);
+void	input_player_position(t_info *info);
+void	count_collectable(t_info *info);
 
 /* event.c */
-int		key_hook(int keycode, t_config *info);
-void	set_event(t_config *info);
+int		key_hook(int keycode, t_info *info);
+void	set_event(t_info *info);
 
 /* player.c */
-void	move_player(t_config *info, int keycode);
+void	move_player(t_info *info, int keycode);
 
 /* convert.c */
-void	list_to_array(t_config *info);
+void	list_to_array(t_info *info);
 
 /* chechk_num_elements.c */
-void	check_num_element(t_config *info);
+void	check_num_element(t_info *info);
 
 #endif

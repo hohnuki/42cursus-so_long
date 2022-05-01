@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	input_player_position(t_config *info)
+void	input_player_position(t_info *info)
 {
 	t_list	*node;
 	int		i;

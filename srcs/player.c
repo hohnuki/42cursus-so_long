@@ -1,13 +1,13 @@
 #include "../includes/so_long.h"
 
-static void	print_pedometer(t_config *info)
+static void	print_pedometer(t_info *info)
 {
 	ft_putstr_fd("pedometer:", STDOUT_FILENO);
 	ft_putnbr_fd(info->player_info.pedometer, STDOUT_FILENO);
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-static void	check_goal_condtion(t_config *info)
+static void	check_goal_condtion(t_info *info)
 {
 	if (info->map_info.collectible_count == info->player_info.collectible_count)
 	{
@@ -20,7 +20,7 @@ static void	check_goal_condtion(t_config *info)
 	}
 }
 
-static void	swap_position(t_config *info)
+static void	swap_position(t_info *info)
 {
 	if (info->map_info.map[info->player_info.c_y][info->player_info.c_x] == '1')
 		return ;
@@ -46,7 +46,7 @@ static void	swap_position(t_config *info)
 		check_goal_condtion(info);
 }
 
-static void	execute_swap_s_or_d(t_config *info, int x, int y)
+static void	execute_swap_s_or_d(t_info *info, int x, int y)
 {
 	info->player_info.c_x = info->player_info.postion_x;
 	info->player_info.c_y = info->player_info.postion_y;
@@ -55,7 +55,7 @@ static void	execute_swap_s_or_d(t_config *info, int x, int y)
 	swap_position(info);
 }
 
-void	move_player(t_config *info, int keycode)
+void	move_player(t_info *info, int keycode)
 {
 	if (keycode == KEY_A)
 	{

@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	assign_image(t_config *info)
+void	assign_image(t_info *info)
 {
 	info->images.player = mlx_xpm_file_to_image(info->mlx, \
 	IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
@@ -28,7 +28,7 @@ void	assign_image(t_config *info)
 		mlx_free();
 }
 
-void	ascii_to_xpm(t_config *info, char c, int i, int j)
+void	ascii_to_xpm(t_info *info, char c, int i, int j)
 {
 	if (c == '0')
 		mlx_put_image_to_window(info->mlx, info->mlx_win, \
@@ -51,7 +51,7 @@ void	ascii_to_xpm(t_config *info, char c, int i, int j)
 		info->images.exit, i * PIXEL_SIZE, j * PIXEL_SIZE);
 }
 
-void	list_to_window(t_config *info)
+void	list_to_window(t_info *info)
 {
 	t_list	*node;
 	int		i;
@@ -73,7 +73,7 @@ void	list_to_window(t_config *info)
 	}
 }
 
-void	display_map(t_config *info)
+void	display_map(t_info *info)
 {
 	info->mlx = mlx_init();
 	info->mlx_win = mlx_new_window(info->mlx, \
@@ -83,7 +83,7 @@ void	display_map(t_config *info)
 	list_to_window(info);
 }
 
-void	read_map(t_config *info)
+void	read_map(t_info *info)
 {
 	t_list	*guard_node;
 	size_t	i;

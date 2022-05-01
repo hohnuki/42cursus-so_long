@@ -5,7 +5,7 @@
 // 	system("leaks -q so_long");
 // }
 
-static void	players_init(t_config *info)
+static void	players_init(t_info *info)
 {
 	info->player_info.postion_x = 0;
 	info->player_info.postion_y = 0;
@@ -17,7 +17,7 @@ static void	players_init(t_config *info)
 	info->player_info.n_y = 0;
 }
 
-static void	info_init(t_config *info)
+static void	info_init(t_info *info)
 {
 	info->mlx = NULL;
 	info->mlx_win = NULL;
@@ -41,7 +41,7 @@ static void	info_init(t_config *info)
 
 int	main(int argc, char **argv)
 {
-	t_config	info;
+	t_info	info;
 
 	if (argc != 2)
 		exit(EXIT_FAILURE);

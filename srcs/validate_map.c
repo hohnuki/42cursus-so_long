@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	validate_map(t_config *info)
+void	validate_map(t_info *info)
 {
 	validate_map_rectangle(info);
 	validate_map_smooth(info);
@@ -8,7 +8,7 @@ void	validate_map(t_config *info)
 	validate_enclose_wall(info);
 }
 
-void	validate_map_rectangle(t_config *info)
+void	validate_map_rectangle(t_info *info)
 {
 	if (info->map_info.width == info->map_info.height)
 		error_message_and_free("map is not rectangle.");
@@ -16,7 +16,7 @@ void	validate_map_rectangle(t_config *info)
 		error_message_and_free("map is narrow");
 }
 
-void	validate_map_smooth(t_config *info)
+void	validate_map_smooth(t_info *info)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ void	validate_map_smooth(t_config *info)
 	}
 }
 
-void	validate_characters(t_config *info)
+void	validate_characters(t_info *info)
 {
 	char	*tmp_address;
 	int		i;
@@ -57,7 +57,7 @@ void	validate_characters(t_config *info)
 	check_num_element(info);
 }
 
-void	validate_enclose_wall(t_config *info)
+void	validate_enclose_wall(t_info *info)
 {
 	int	i;
 	int	j;

@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	list_to_array(t_config *info)
+void	list_to_array(t_info *info)
 {
 	t_list	*node;
 	int		i;
