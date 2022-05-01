@@ -15,7 +15,7 @@ static void	check_goal_condtion(t_config *info)
 		info->map_info.map[info->player_info.c_y][info->player_info.c_x] = '0';
 		info->map_info.map[info->player_info.n_y][info->player_info.n_x] = 'P';
 		print_pedometer(info);
-		printf("Game clear!\n");
+		ft_putstr_fd("Game clear!\n", STDOUT_FILENO);
 		mlx_free();
 	}
 }
