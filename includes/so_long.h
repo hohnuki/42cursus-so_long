@@ -7,8 +7,8 @@
 # include <libc.h>
 # include "../includes/get_next_line.h"
 # include "../libft/libft.h"
-//# include "../minilibx_mms/mlx.h"
-# include "../mlx_linux/mlx.h"
+# include "../minilibx_mms/mlx.h"
+// # include "../mlx_linux/mlx.h"
 
 # define PIXEL_SIZE 32
 
@@ -79,7 +79,7 @@ typedef struct s_config
 /* main.c */
 
 /* validate_filename.c */
-void	validate_filename(t_config *info, char *filename);
+void	validate_filename(char *filename);
 void	validate_map_smooth(t_config *info);
 
 /* map.c */
@@ -103,8 +103,8 @@ void	validate_characters(t_config *info);
 void	validate_enclose_wall(t_config *info);
 
 /* free.c */
-void	error_message_and_free(char *message, t_config *info);
-int		mlx_free(t_config *info);
+void	error_message_and_free(char *message);
+int		mlx_free();
 
 /* config_map_info.c */
 void	input_player_position(t_config *info);

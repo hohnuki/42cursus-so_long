@@ -2,7 +2,7 @@
 
 int	key_hook(int keycode, t_config *info)
 {
-	if (keycode == 'a' || keycode == 'w' || keycode == 's' || keycode == 'd')
+	if (keycode == KEY_A || keycode == KEY_W || keycode == KEY_S || keycode == KEY_D)
 		move_player(info, keycode);
 	input_player_position(info);
 	list_to_window(info);

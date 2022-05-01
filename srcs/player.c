@@ -15,7 +15,6 @@ static void	check_goal_condtion(t_config *info)
 		print_pedometer(info);
 		printf("Game clear!\n");
 		mlx_free(info);
-		system("leaks so_long");
 	}
 }
 
@@ -46,7 +45,7 @@ static void	swap_position(t_config *info)
 
 void	move_player(t_config *info, int keycode)
 {
-	if (keycode == 'a')
+	if (keycode == KEY_A)
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;
@@ -54,7 +53,7 @@ void	move_player(t_config *info, int keycode)
 		info->player_info.n_y = info->player_info.postion_y;
 		swap_position(info);
 	}
-	else if (keycode == 'w')
+	else if (keycode == KEY_W)
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;
@@ -62,7 +61,7 @@ void	move_player(t_config *info, int keycode)
 		info->player_info.n_y = info->player_info.postion_y - 1;
 		swap_position(info);
 	}
-	else if (keycode == 'd')
+	else if (keycode == KEY_D)
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;
@@ -70,7 +69,7 @@ void	move_player(t_config *info, int keycode)
 		info->player_info.n_y = info->player_info.postion_y;
 		swap_position(info);
 	}
-	else if (keycode == 's')
+	else if (keycode == KEY_S)
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;

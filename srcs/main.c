@@ -1,5 +1,10 @@
 #include "../includes/so_long.h"
 
+__attribute__((destructor))
+static void destructor() {
+	system("leaks -q so_long");
+}
+
 static void	players_init(t_config *info)
 {
 	info->player_info.postion_x = 0;
@@ -41,7 +46,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit(EXIT_FAILURE);
 	info_init(&info);
-	validate_filename(&info, argv[1]);
+	validate_filename(argv[1]);
 	info.filename = argv[1];
 	read_map(&info);
 	display_map(&info);
