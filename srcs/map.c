@@ -5,27 +5,27 @@ void	assign_image(t_info *info)
 	info->images.player = mlx_xpm_file_to_image(info->mlx, \
 	IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player == NULL)
-		mlx_free();
+		error_message_and_free("Error\nplayer_image not allocated.");
 	info->images.player2 = mlx_xpm_file_to_image(info->mlx, \
 	IMG_PLAYER2, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player2 == NULL)
-		mlx_free();
+		error_message_and_free("Error\nplayer2_image not allocated.");
 	info->images.wall = mlx_xpm_file_to_image(info->mlx, \
 	IMG_WALL, &info->images.image_size, &info->images.image_size);
 	if (info->images.wall == NULL)
-		mlx_free();
+		error_message_and_free("Error\nwall_image not allocated.");
 	info->images.collectible = mlx_xpm_file_to_image(info->mlx, \
 	IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
 	if (info->images.collectible == NULL)
-		mlx_free();
+		error_message_and_free("Error\ncollectible_image not allocated.");
 	info->images.exit = mlx_xpm_file_to_image(info->mlx, \
 	IMG_EXIT, &info->images.image_size, &info->images.image_size);
 	if (info->images.exit == NULL)
-		mlx_free();
+		error_message_and_free("Error\nexit_image not allocated.");
 	info->images.empty = mlx_xpm_file_to_image(info->mlx, \
 	IMG_EMPTY, &info->images.image_size, &info->images.image_size);
 	if (info->images.empty == NULL)
-		mlx_free();
+		error_message_and_free("Error\nempty_image not allocated.");
 }
 
 void	ascii_to_xpm(t_info *info, char c, int i, int j)
