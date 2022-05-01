@@ -6,7 +6,12 @@ void	error_message_and_free(char *message)
 	mlx_free();
 }
 
-int	mlx_free()
+void	mlx_free(void)
+{
+	exit (1);
+}
+
+int	mlx_free_ret_int(void)
 {
 	exit (1);
 	return (0);

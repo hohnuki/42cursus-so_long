@@ -2,7 +2,9 @@
 
 static void	print_pedometer(t_config *info)
 {
-	printf("pedometer:%d \n", info->player_info.pedometer);
+	ft_putstr_fd("pedometer:", STDOUT_FILENO);
+	ft_putnbr_fd(info->player_info.pedometer, STDOUT_FILENO);
+	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
 static void	check_goal_condtion(t_config *info)
@@ -14,7 +16,7 @@ static void	check_goal_condtion(t_config *info)
 		info->map_info.map[info->player_info.n_y][info->player_info.n_x] = 'P';
 		print_pedometer(info);
 		printf("Game clear!\n");
-		mlx_free(info);
+		mlx_free();
 	}
 }
 
@@ -39,8 +41,18 @@ static void	swap_position(t_config *info)
 		info->map_info.map[info->player_info.n_y][info->player_info.n_x] = 'P';
 		print_pedometer(info);
 	}
-	else
+	else if (info->map_info.map[info->player_info.n_y][info->player_info.n_x] \
+	== 'E')
 		check_goal_condtion(info);
+}
+
+static void	execute_swap_s_or_d(t_config *info, int x, int y)
+{
+	info->player_info.c_x = info->player_info.postion_x;
+	info->player_info.c_y = info->player_info.postion_y;
+	info->player_info.n_x = info->player_info.postion_x + x;
+	info->player_info.n_y = info->player_info.postion_y + y;
+	swap_position(info);
 }
 
 void	move_player(t_config *info, int keycode)
@@ -62,19 +74,7 @@ void	move_player(t_config *info, int keycode)
 		swap_position(info);
 	}
 	else if (keycode == KEY_D)
-	{
-		info->player_info.c_x = info->player_info.postion_x;
-		info->player_info.c_y = info->player_info.postion_y;
-		info->player_info.n_x = info->player_info.postion_x + 1;
-		info->player_info.n_y = info->player_info.postion_y;
-		swap_position(info);
-	}
+		execute_swap_s_or_d(info, 1, 0);
 	else if (keycode == KEY_S)
-	{
-		info->player_info.c_x = info->player_info.postion_x;
-		info->player_info.c_y = info->player_info.postion_y;
-		info->player_info.n_x = info->player_info.postion_x;
-		info->player_info.n_y = info->player_info.postion_y + 1;
-		swap_position(info);
-	}
+		execute_swap_s_or_d(info, 0, 1);
 }

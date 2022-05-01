@@ -1,9 +1,9 @@
 #include "../includes/so_long.h"
 
-__attribute__((destructor))
-static void destructor() {
-	system("leaks -q so_long");
-}
+// __attribute__((destructor))
+// static void destructor() {
+// 	system("leaks -q so_long");
+// }
 
 static void	players_init(t_config *info)
 {

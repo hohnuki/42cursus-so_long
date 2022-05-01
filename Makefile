@@ -9,8 +9,8 @@ MLX_PATH		= 	./minilibx_mms/
 # MLX_PATH		= 	./mlx_linux/
 
 SRCS_FILES		= 	event.c get_next_line.c get_next_line_utils.c main.c \
-					map.c map_debug.c player.c config_map_info.c \
-					convert.c map_debug_array.c validate_filename.c \
+					map.c player.c config_map_info.c \
+					convert.c validate_filename.c \
 					free.c validate_map.c check_num_elements.c
 
 SRCS			=	$(addprefix $(SRCS_PATH), $(SRCS_FILES))

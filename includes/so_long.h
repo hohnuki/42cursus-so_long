@@ -23,14 +23,13 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_W 13
+# define KEY_ESC 53
 
 # define KEY_PRESS 2
 # define EXPOSE_E 12
-# define CLIENT_MESSAGE 33
+# define DESTOROY_NOTIFY 17
 
-# define KEY_PRESS_MASK 1L << 0
-# define EXPOSE_MASK 1L << 15
-# define STRUC_NOTFY_MASK 1L << 17
+# define NO_EVENT_MASK 0L
 
 typedef struct s_map
 {
@@ -104,7 +103,8 @@ void	validate_enclose_wall(t_config *info);
 
 /* free.c */
 void	error_message_and_free(char *message);
-int		mlx_free();
+void	mlx_free(void);
+int		mlx_free_ret_int(void);
 
 /* config_map_info.c */
 void	input_player_position(t_config *info);
