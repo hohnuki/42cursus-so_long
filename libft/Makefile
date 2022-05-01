@@ -6,11 +6,11 @@
 #    By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/01 21:54:36 by ohnukihirok       #+#    #+#              #
-#    Updated: 2021/11/09 17:19:36 by hohnuki          ###   ########.fr        #
+#    Updated: 2022/05/01 14:55:55 by hohnuki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC 			= 	gcc
+CC 			= 	cc
 CFLAGS		= 	-Wall -Wextra -Werror -I.
 RM			= 	rm -f
 NAME 		= 	libft.a

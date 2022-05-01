@@ -11,9 +11,9 @@ void	validate_map(t_info *info)
 void	validate_map_rectangle(t_info *info)
 {
 	if (info->map_info.width == info->map_info.height)
-		error_message_and_free("map is not rectangle.");
+		error_message_and_free("Error\nmap is not rectangle.");
 	if (info->map_info.width <= 2 || info->map_info.height <= 2)
-		error_message_and_free("map is narrow");
+		error_message_and_free("Error\nmap is narrow");
 }
 
 void	validate_map_smooth(t_info *info)
@@ -24,7 +24,7 @@ void	validate_map_smooth(t_info *info)
 	while (i < info->map_info.height)
 	{
 		if ((int)ft_strlen(info->map_info.map[i]) != info->map_info.width)
-			error_message_and_free("map is not smooth.");
+			error_message_and_free("Error\nmap is not smooth.");
 		i++;
 	}
 }
@@ -49,7 +49,7 @@ void	validate_characters(t_info *info)
 				info->map_info.exit_count++;
 			tmp_address = ft_strchr("10CEP", info->map_info.map[i][j]);
 			if (tmp_address == NULL)
-				error_message_and_free("map has invalid character.");
+				error_message_and_free("Error\nmap has invalid character.");
 			j++;
 		}
 		i++;
@@ -70,10 +70,10 @@ void	validate_enclose_wall(t_info *info)
 		{
 			if ((j == 0 || j == (int)(ft_strlen(info->map_info.map[i]) - 1)) \
 			&& info->map_info.map[i][j] != '1')
-				error_message_and_free("map is not enclosed wall.");
+				error_message_and_free("Error\nmap is not enclosed wall.");
 			if ((i == 0 || i == info->map_info.height - 1) && \
 			info->map_info.map[i][j] != '1')
-				error_message_and_free("map is not enclosed wall.");
+				error_message_and_free("Error\nmap is not enclosed wall.");
 			j++;
 		}
 		i++;
