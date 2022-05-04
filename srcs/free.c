@@ -1,18 +1,13 @@
 #include "../includes/so_long.h"
 
-void	error_message_and_free(char *message)
+void	error_message_and_exit(char *message)
 {
 	ft_putendl_fd(message, STDERR_FILENO);
-	mlx_free();
-}
-
-void	mlx_free(void)
-{
-	exit (1);
+	exit (EXIT_FAILURE);
 }
 
 int	mlx_free_ret_int(void)
 {
-	exit (1);
+	exit (EXIT_FAILURE);
 	return (0);
 }

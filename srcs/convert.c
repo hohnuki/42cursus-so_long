@@ -10,7 +10,7 @@ void	list_to_array(t_info *info)
 	i = 0;
 	info->map_info.map = malloc(sizeof(char *) * info->map_info.height);
 	if (info->map_info.map == NULL)
-		mlx_free();
+		exit (EXIT_FAILURE);
 	while (i < info->map_info.height)
 	{
 		info->map_info.map[i] = node->content;

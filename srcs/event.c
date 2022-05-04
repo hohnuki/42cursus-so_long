@@ -6,7 +6,7 @@ int	key_hook(int keycode, t_info *info)
 	keycode == KEY_D)
 		move_player(info, keycode);
 	else if (keycode == KEY_ESC)
-		mlx_free();
+		exit (EXIT_FAILURE);
 	input_player_position(info);
 	list_to_window(info);
 	return (0);

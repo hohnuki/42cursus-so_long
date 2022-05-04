@@ -5,27 +5,27 @@ void	assign_image(t_info *info)
 	info->images.player = mlx_xpm_file_to_image(info->mlx, \
 	IMG_PLAYER, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player == NULL)
-		error_message_and_free("Error\nplayer_image not allocated.");
+		error_message_and_exit("Error\nplayer_image not allocated.");
 	info->images.player2 = mlx_xpm_file_to_image(info->mlx, \
 	IMG_PLAYER2, &(info->images.image_size), &(info->images.image_size));
 	if (info->images.player2 == NULL)
-		error_message_and_free("Error\nplayer2_image not allocated.");
+		error_message_and_exit("Error\nplayer2_image not allocated.");
 	info->images.wall = mlx_xpm_file_to_image(info->mlx, \
 	IMG_WALL, &info->images.image_size, &info->images.image_size);
 	if (info->images.wall == NULL)
-		error_message_and_free("Error\nwall_image not allocated.");
+		error_message_and_exit("Error\nwall_image not allocated.");
 	info->images.collectible = mlx_xpm_file_to_image(info->mlx, \
 	IMG_COLLECTIBLE, &info->images.image_size, &info->images.image_size);
 	if (info->images.collectible == NULL)
-		error_message_and_free("Error\ncollectible_image not allocated.");
+		error_message_and_exit("Error\ncollectible_image not allocated.");
 	info->images.exit = mlx_xpm_file_to_image(info->mlx, \
 	IMG_EXIT, &info->images.image_size, &info->images.image_size);
 	if (info->images.exit == NULL)
-		error_message_and_free("Error\nexit_image not allocated.");
+		error_message_and_exit("Error\nexit_image not allocated.");
 	info->images.empty = mlx_xpm_file_to_image(info->mlx, \
 	IMG_EMPTY, &info->images.image_size, &info->images.image_size);
 	if (info->images.empty == NULL)
-		error_message_and_free("Error\nempty_image not allocated.");
+		error_message_and_exit("Error\nempty_image not allocated.");
 }
 
 void	ascii_to_xpm(t_info *info, char c, int i, int j)
@@ -75,10 +75,10 @@ void	list_to_window(t_info *info)
 
 void	display_map(t_info *info)
 {
-	info->mlx = mlx_init();
+	info->mlx = mlx_init();//mlx_initのエラー処理必要じゃね?
 	info->mlx_win = mlx_new_window(info->mlx, \
 	(info->map_info.width * PIXEL_SIZE), \
-	(info->map_info.height * PIXEL_SIZE), "so_long");
+	(info->map_info.height * PIXEL_SIZE), "so_long");//mlx_new_windowのエラー処理必要じゃね?
 	assign_image(info);
 	list_to_window(info);
 }
@@ -93,7 +93,7 @@ void	read_map(t_info *info)
 	guard_node = ft_lstnew(NULL);
 	info->map_info.guard_node = guard_node;
 	i = 0;
-	fd = open(info->filename, O_RDONLY);
+	fd = open(info->filename, O_RDONLY);//openのエラー処理必要じゃね？
 	while (1)
 	{
 		line = get_next_line(fd);

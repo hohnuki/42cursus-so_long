@@ -101,8 +101,7 @@ void	validate_characters(t_info *info);
 void	validate_enclose_wall(t_info *info);
 
 /* free.c */
-void	error_message_and_free(char *message);
-void	mlx_free(void);
+void	error_message_and_exit(char *message);
 int		mlx_free_ret_int(void);
 
 /* config_map_info.c */

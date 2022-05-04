@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hohnuki <hohnuki@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:29:28 by hohnuki           #+#    #+#             */
-/*   Updated: 2021/11/09 14:56:19 by hohnuki          ###   ########.fr       */
+/*   Updated: 2022/05/04 11:30:18 by ohnukihirok      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(void *content)
 
 	ptr = (t_list *)malloc(sizeof(*ptr));
 	if (!ptr)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	ptr->content = content;
 	ptr->next = NULL;
 	return (ptr);
