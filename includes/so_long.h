@@ -102,7 +102,7 @@ void	validate_enclose_wall(t_info *info);
 
 /* free.c */
 void	error_message_and_exit(char *message);
-int		mlx_free_ret_int(void);
+int		execute_exit(void);
 
 /* config_map_info.c */
 void	input_player_position(t_info *info);

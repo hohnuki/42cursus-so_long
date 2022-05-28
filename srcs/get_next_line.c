@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 18:23:09 by hohnuki           #+#    #+#             */
-/*   Updated: 2022/02/19 03:17:29 by ohnukihirok      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/get_next_line.h"
 
 static char	*store_to_save(char *save)
@@ -51,7 +39,7 @@ static char	*join_to_save(int fd, char *save)
 
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	read_ret = NOT_EOF_OR_ERROR;
 	while (!ft_strchr_gnl(save, '\n') && read_ret != 0)
 	{

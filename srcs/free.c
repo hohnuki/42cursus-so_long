@@ -6,8 +6,7 @@ void	error_message_and_exit(char *message)
 	exit (EXIT_FAILURE);
 }
 
-int	mlx_free_ret_int(void)
+int	execute_exit(void)
 {
 	exit (EXIT_FAILURE);
-	return (0);
 }

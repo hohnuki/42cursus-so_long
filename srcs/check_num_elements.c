@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	check_num_element(t_info *info)
 {

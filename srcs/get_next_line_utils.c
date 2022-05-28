@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ohnukihiroki <ohnukihiroki@student.42.f    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 18:23:38 by hohnuki           #+#    #+#             */
-/*   Updated: 2022/04/25 15:07:39 by ohnukihirok      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/get_next_line.h"
 
 char	*ft_strjoin_gnl(char *s1, char *s2)
@@ -26,7 +14,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	s2_len = ft_strlen_gnl(s2);
 	str = malloc(sizeof(char) * (ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1));
 	if (str == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	while (i < s1_len)
 		str[i++] = s1[j++];
 	j = 0;
@@ -80,7 +68,7 @@ char	*ft_substr_gnl(char *s, unsigned int start, size_t len)
 	else
 		str = malloc(sizeof(const char) * (ft_strlen_gnl(s) - start + 1));
 	if (str == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	while (i < len && s[start] != '\0')
 	{
 		str[i] = s[start];

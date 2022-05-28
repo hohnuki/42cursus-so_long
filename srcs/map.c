@@ -75,10 +75,14 @@ void	list_to_window(t_info *info)
 
 void	display_map(t_info *info)
 {
-	info->mlx = mlx_init();//mlx_initのエラー処理必要じゃね?
+	info->mlx = mlx_init();
+	if (info->mlx == NULL)
+		error_message_and_exit("Error\nmlx not initialized.");
 	info->mlx_win = mlx_new_window(info->mlx, \
 	(info->map_info.width * PIXEL_SIZE), \
-	(info->map_info.height * PIXEL_SIZE), "so_long");//mlx_new_windowのエラー処理必要じゃね?
+	(info->map_info.height * PIXEL_SIZE), "so_long");
+	if (info->mlx_win == NULL)
+		error_message_and_exit("Error\nmlx_window not allocated.");
 	assign_image(info);
 	list_to_window(info);
 }
@@ -93,7 +97,9 @@ void	read_map(t_info *info)
 	guard_node = ft_lstnew(NULL);
 	info->map_info.guard_node = guard_node;
 	i = 0;
-	fd = open(info->filename, O_RDONLY);//openのエラー処理必要じゃね？
+	fd = open(info->filename, O_RDONLY);
+	if (fd == -1)
+		exit(EXIT_FAILURE);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -108,6 +114,4 @@ void	read_map(t_info *info)
 	info->map_info.height = (int)i;
 	info->map_info.width = (int)ft_strlen(guard_node->next->content);
 	input_player_position(info);
-	list_to_array(info);
-	validate_map(info);
 }
