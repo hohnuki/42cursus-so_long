@@ -1,5 +1,11 @@
 #include "../includes/so_long.h"
 
+void	validate_white_line(t_info *info)
+{
+	if (info->map_info.guard_node->next == NULL)
+		error_message_and_exit("Error\nfile is white line.");
+}
+
 void	validate_filename(char *filename)
 {
 	char	*dot_address;

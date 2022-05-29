@@ -89,13 +89,11 @@ void	display_map(t_info *info)
 
 void	read_map(t_info *info)
 {
-	t_list	*guard_node;
 	size_t	i;
 	char	*line;
 	int		fd;
 
-	guard_node = ft_lstnew(NULL);
-	info->map_info.guard_node = guard_node;
+	info->map_info.guard_node = ft_lstnew(NULL);
 	i = 0;
 	fd = open(info->filename, O_RDONLY);
 	if (fd == -1)
@@ -107,11 +105,13 @@ void	read_map(t_info *info)
 			break ;
 		if (line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
-		ft_lstadd_back(&guard_node, ft_lstnew(line));
+		ft_lstadd_back(&info->map_info.guard_node, ft_lstnew(line));
 		i++;
 	}
 	close(fd);
+	validate_white_line(info);
 	info->map_info.height = (int)i;
-	info->map_info.width = (int)ft_strlen(guard_node->next->content);
+	info->map_info.width = \
+	(int)ft_strlen(info->map_info.guard_node->next->content);
 	input_player_position(info);
 }

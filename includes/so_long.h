@@ -71,6 +71,7 @@ typedef struct s_info
 /* main.c */
 
 /* validate_filename.c */
+void	validate_white_line(t_info *info);
 void	validate_filename(char *filename);
 void	validate_map_smooth(t_info *info);
 

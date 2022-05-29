@@ -10,8 +10,6 @@ void	validate_map(t_info *info)
 
 void	validate_map_rectangle(t_info *info)
 {
-	if (info->map_info.width == info->map_info.height)
-		error_message_and_exit("Error\nmap is not rectangle.");
 	if (info->map_info.width <= 2 || info->map_info.height <= 2)
 		error_message_and_exit("Error\nmap is narrow");
 }
