@@ -5,7 +5,7 @@ INCLUDES		= 	includes
 
 LIBFT_PATH		= 	./libft/
 SRCS_PATH		= 	./srcs/
-MLX_PATH		= 	./minilibx_mms_20200219/
+MLX_PATH		= 	./minilibx-linux/
 
 SRCS_FILES		= 	event.c get_next_line.c get_next_line_utils.c main.c \
 					map.c player.c config_map_info.c \
@@ -18,7 +18,7 @@ SRCS_OBJS		= 	$(SRCS:.c=.o)
 LIBFTMAKE		= 	$(MAKE) -C $(LIBFT_PATH)
 LIBFTFLAG		= 	-L$(LIBFT_PATH) -lft
 MLXMAKE			= 	$(MAKE) -C $(MLX_PATH)
-MLXFLAG			=	-lmlx -framework OpenGL -framework AppKit
+MLXFLAG			=	-L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 
 all:			$(NAME)
 
@@ -28,7 +28,7 @@ $(MLX_PATH):
 $(NAME):		$(MLX_PATH) $(SRCS_OBJS)
 				$(LIBFTMAKE)
 				$(MLXMAKE)
-				$(CC) $(CFLAGS) $(SRCS_OBJS) $(LIBFTFLAG) $(MLXFLAG) -o $(NAME)
+				$(CC) $(CFLAGS) $(SRCS_OBJS) $(LIBFTFLAG) $(MLXFLAG) $(MLX_PATH)libmlx.a -o $(NAME)
 
 .c.o:
 				$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@

@@ -7,7 +7,7 @@ static void	print_pedometer(t_info *info)
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-static void	check_goal_condtion(t_info *info)
+static void	check_goal_condition(t_info *info)
 {
 	if (info->map_info.collectible_count == info->player_info.collectible_count)
 	{
@@ -43,7 +43,7 @@ static void	swap_position(t_info *info)
 	}
 	else if (info->map_info.map[info->player_info.n_y][info->player_info.n_x] \
 	== 'E')
-		check_goal_condtion(info);
+		check_goal_condition(info);
 }
 
 static void	execute_swap_s_or_d(t_info *info, int x, int y)
@@ -57,7 +57,7 @@ static void	execute_swap_s_or_d(t_info *info, int x, int y)
 
 void	move_player(t_info *info, int keycode)
 {
-	if (keycode == KEY_A)
+	if (keycode == 'a')
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;
@@ -65,7 +65,7 @@ void	move_player(t_info *info, int keycode)
 		info->player_info.n_y = info->player_info.postion_y;
 		swap_position(info);
 	}
-	else if (keycode == KEY_W)
+	else if (keycode == 'w')
 	{
 		info->player_info.c_x = info->player_info.postion_x;
 		info->player_info.c_y = info->player_info.postion_y;
@@ -73,8 +73,8 @@ void	move_player(t_info *info, int keycode)
 		info->player_info.n_y = info->player_info.postion_y - 1;
 		swap_position(info);
 	}
-	else if (keycode == KEY_D)
+	else if (keycode == 'd')
 		execute_swap_s_or_d(info, 1, 0);
-	else if (keycode == KEY_S)
+	else if (keycode == 's')
 		execute_swap_s_or_d(info, 0, 1);
 }

@@ -7,7 +7,7 @@
 # include <libc.h>
 # include "../includes/get_next_line.h"
 # include "../libft/libft.h"
-# include "../minilibx_mms_20200219/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 # define PIXEL_SIZE 32
 
@@ -18,15 +18,9 @@
 # define IMG_PLAYER			"images/c.xpm"
 # define IMG_PLAYER2		"images/c++.xpm"
 
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_W 13
-# define KEY_ESC 53
-
 # define KEY_PRESS 2
 # define EXPOSE_E 12
-# define DESTOROY_NOTIFY 17
+# define DESTROY_NOTIFY 17
 
 # define NO_EVENT_MASK 0L
 
