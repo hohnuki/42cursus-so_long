@@ -22,8 +22,6 @@
 # define EXPOSE_E 12
 # define DESTROY_NOTIFY 17
 
-# define NO_EVENT_MASK 0L
-
 typedef struct s_map
 {
 	int		width;
@@ -37,8 +35,8 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int	postion_x;
-	int	postion_y;
+	int	position_x;
+	int	position_y;
 	int	pedometer;
 	int	collectible_count;
 	int	c_x;
@@ -73,7 +71,6 @@ typedef struct s_info
 /* validate_filename.c */
 void	validate_white_line(t_info *info);
 void	validate_filename(char *filename);
-void	validate_map_smooth(t_info *info);
 
 /* map.c */
 void	assign_image(t_info *info);
@@ -81,12 +78,6 @@ void	ascii_to_xpm(t_info *info, char c, int i, int j);
 void	list_to_window(t_info *info);
 void	read_map(t_info *info);
 void	display_map(t_info *info);
-
-/* map_debug.c */
-void	print_map(t_info *info);
-
-/* map_debug_array.c */
-void	print_map_array(t_info *info);
 
 /* validate_map.c */
 void	validate_map(t_info *info);
@@ -101,7 +92,6 @@ int		execute_exit(void);
 
 /* config_map_info.c */
 void	input_player_position(t_info *info);
-void	count_collectable(t_info *info);
 
 /* event.c */
 int		key_hook(int keycode, t_info *info);

@@ -89,7 +89,7 @@ void	display_map(t_info *info)
 
 void	read_map(t_info *info)
 {
-	size_t	i;
+	int		i;
 	char	*line;
 	int		fd;
 
@@ -110,7 +110,7 @@ void	read_map(t_info *info)
 	}
 	close(fd);
 	validate_white_line(info);
-	info->map_info.height = (int)i;
+	info->map_info.height = i;
 	info->map_info.width = \
 	(int)ft_strlen(info->map_info.guard_node->next->content);
 	input_player_position(info);

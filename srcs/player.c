@@ -48,10 +48,10 @@ static void	swap_position(t_info *info)
 
 static void	execute_swap_s_or_d(t_info *info, int x, int y)
 {
-	info->player_info.c_x = info->player_info.postion_x;
-	info->player_info.c_y = info->player_info.postion_y;
-	info->player_info.n_x = info->player_info.postion_x + x;
-	info->player_info.n_y = info->player_info.postion_y + y;
+	info->player_info.c_x = info->player_info.position_x;
+	info->player_info.c_y = info->player_info.position_y;
+	info->player_info.n_x = info->player_info.position_x + x;
+	info->player_info.n_y = info->player_info.position_y + y;
 	swap_position(info);
 }
 
@@ -59,18 +59,18 @@ void	move_player(t_info *info, int keycode)
 {
 	if (keycode == 'a')
 	{
-		info->player_info.c_x = info->player_info.postion_x;
-		info->player_info.c_y = info->player_info.postion_y;
-		info->player_info.n_x = info->player_info.postion_x - 1;
-		info->player_info.n_y = info->player_info.postion_y;
+		info->player_info.c_x = info->player_info.position_x;
+		info->player_info.c_y = info->player_info.position_y;
+		info->player_info.n_x = info->player_info.position_x - 1;
+		info->player_info.n_y = info->player_info.position_y;
 		swap_position(info);
 	}
 	else if (keycode == 'w')
 	{
-		info->player_info.c_x = info->player_info.postion_x;
-		info->player_info.c_y = info->player_info.postion_y;
-		info->player_info.n_x = info->player_info.postion_x;
-		info->player_info.n_y = info->player_info.postion_y - 1;
+		info->player_info.c_x = info->player_info.position_x;
+		info->player_info.c_y = info->player_info.position_y;
+		info->player_info.n_x = info->player_info.position_x;
+		info->player_info.n_y = info->player_info.position_y - 1;
 		swap_position(info);
 	}
 	else if (keycode == 'd')

@@ -22,6 +22,6 @@ void	set_event(t_info *info)
 {
 	mlx_hook(info->mlx_win, KEY_PRESS, 1L << 0, key_hook, info);
 	mlx_hook(info->mlx_win, EXPOSE_E, 1L << 15, expose, info);
-	mlx_hook(info->mlx_win, DESTROY_NOTIFY, NO_EVENT_MASK, \
+	mlx_hook(info->mlx_win, DESTROY_NOTIFY, 0L, \
 	execute_exit, info);
 }

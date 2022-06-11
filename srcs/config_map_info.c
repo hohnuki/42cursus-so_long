@@ -16,8 +16,8 @@ void	input_player_position(t_info *info)
 		{
 			if (node->content[j] == 'P')
 			{
-				info->player_info.postion_y = i;
-				info->player_info.postion_x = j;
+				info->player_info.position_y = i;
+				info->player_info.position_x = j;
 				return ;
 			}
 			j++;
