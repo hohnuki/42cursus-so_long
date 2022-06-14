@@ -17,3 +17,5 @@ cd so_long
 ```
 ./so_long map/normal.ber
 ```
+
+![スクリーンショット 2022-06-14 22 21 42](https://user-images.githubusercontent.com/66793450/173587469-e6632ed4-d34c-434c-9c60-0bc229006d2d.png)
